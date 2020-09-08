@@ -23,22 +23,26 @@ namespace TRPO_labe_1
             InitializeComponent();
         }
 
-        private void btnFind_Click(object sender, RoutedEventArgs e)
+        private MatchCollection GetRegexCollection()
         {
-            var wind = new FindWindows.FindWindow(this);
-            wind.Show();
+            Regex regex = new Regex($"{findTextBox.Text}");
+            return regex.Matches(new TextRange(textBox.Document.ContentStart, textBox.Document.ContentEnd).Text);
         }
 
-        public void SelectText(MatchCollection regexCollection)
+        private void btnFind_Click(object sender, RoutedEventArgs e)
         {
+            textBox.IsInactiveSelectionHighlightEnabled = true;
+            textBox.Focus();
+            var collection = GetRegexCollection();
             TextPointer t1, t2;
-            foreach (Match reg in regexCollection)
+            foreach (Match reg in collection)
             {
-                t1 = textBox.Document.ContentStart.GetPositionAtOffset(reg.Index);
-                t2 = textBox.Document.ContentStart.GetPositionAtOffset(reg.Length);
+                t1 = textBox.Document.ContentStart.GetPositionAtOffset(reg.Index-2);
+                t2 = textBox.Document.ContentEnd;
+                textBox.SelectionBrush = new SolidColorBrush(Color.FromRgb(12,17,200));
+                textBox.SelectionTextBrush = new SolidColorBrush(Color.FromRgb(200,50,0));
                 textBox.Selection.Select(t1, t2);
-                textBox.SelectionTextBrush = ;
-            } 
+            }
         }
     }
 }

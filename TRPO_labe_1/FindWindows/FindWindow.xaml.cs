@@ -27,10 +27,10 @@ namespace TRPO_labe_1.FindWindows
             _mw = MW;
         }
 
-        private void btnFind_Click(object sender, RoutedEventArgs e)
-        {
-            Regex reg = new Regex($"{findTextBox.Text}");
-            _mw.SelectText(reg.Matches(new TextRange(_mw.textBox.Document.ContentStart, _mw.textBox.Document.ContentEnd).Text));
-        }
+        //private void btnFind_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Regex reg = new Regex($"{findTextBox.Text}");
+        //    _mw.SelectText(reg.Matches(new TextRange(_mw.textBox.Document.ContentStart, _mw.textBox.Document.ContentEnd).Text));
+        //}
     }
 }
