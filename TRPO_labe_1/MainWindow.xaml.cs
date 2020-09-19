@@ -23,26 +23,83 @@ namespace TRPO_labe_1
             InitializeComponent();
         }
 
-        private MatchCollection GetRegexCollection()
-        {
-            Regex regex = new Regex($"{findTextBox.Text}");
-            return regex.Matches(new TextRange(textBox.Document.ContentStart, textBox.Document.ContentEnd).Text);
-        }
-
         private void btnFind_Click(object sender, RoutedEventArgs e)
         {
-            textBox.IsInactiveSelectionHighlightEnabled = true;
-            textBox.Focus();
-            var collection = GetRegexCollection();
-            TextPointer t1, t2;
-            foreach (Match reg in collection)
+            ReloadTextBox();
+            var collection = GetMatchCollection();
+            foreach (Match match in collection)
             {
-                t1 = textBox.Document.ContentStart.GetPositionAtOffset(reg.Index-2);
-                t2 = textBox.Document.ContentEnd;
-                textBox.SelectionBrush = new SolidColorBrush(Color.FromRgb(12,17,200));
-                textBox.SelectionTextBrush = new SolidColorBrush(Color.FromRgb(200,50,0));
-                textBox.Selection.Select(t1, t2);
+                int firstPos = match.Index;
+                int lastPos = match.Index + match.Length;
+                var documentContent = textBox.Document.ContentStart;
+                var firstPointer = FindPointerAtTextOffset(documentContent, firstPos, false);
+                var lastPointer = FindPointerAtTextOffset(documentContent, lastPos, false);
+                var range = new TextRange(firstPointer, lastPointer);
+                range.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Aquamarine);
             }
+        }
+
+        private void ReloadTextBox()
+        {
+            var startrange = new TextRange(textBox.Document.ContentStart, textBox.Document.ContentEnd);
+            startrange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.White);
+        }
+
+        private TextPointer FindPointerAtTextOffset(TextPointer from, int offset, bool seekStart)
+        {
+            if (from == null)
+                return null;
+
+            TextPointer current = from;
+            TextPointer end = from.DocumentEnd;
+            int charsToGo = offset;
+
+            while (current.CompareTo(end) != 0)
+            {
+                Run currentRun;
+                if (current.GetPointerContext(LogicalDirection.Forward) == TextPointerContext.Text &&
+                    (currentRun = current.Parent as Run) != null)
+                {
+                    var remainingLengthInRun = current.GetOffsetToPosition(currentRun.ContentEnd);
+                    if (charsToGo < remainingLengthInRun ||
+                        (charsToGo == remainingLengthInRun && !seekStart))
+                        return current.GetPositionAtOffset(charsToGo);
+                    charsToGo -= remainingLengthInRun;
+                    current = currentRun.ElementEnd;
+                }
+                else
+                {
+                    current = current.GetNextContextPosition(LogicalDirection.Forward);
+                }
+            }
+            if (charsToGo == 0 && !seekStart)
+                return end;
+            return null;
+        }
+
+        private MatchCollection GetMatchCollection()
+        {
+            Regex regex = new Regex($"{findTextBox.Text}");
+            var collection =
+                regex.Matches(new TextRange(textBox.Document.ContentStart, textBox.Document.ContentEnd).Text);
+            return collection;
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            if (textBox.CanUndo)
+                textBox.Undo();
+        }
+
+        private void btnReplace_Click(object sender, RoutedEventArgs e)
+        {
+            var textRange = new TextRange(textBox.Document.ContentStart, textBox.Document.ContentEnd);
+            textRange.Text = textRange.Text.Replace(findReplaceTextBox.Text, findReplaceTextBox2.Text);
+        }
+
+        private void textBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            ReloadTextBox();
         }
     }
 }
