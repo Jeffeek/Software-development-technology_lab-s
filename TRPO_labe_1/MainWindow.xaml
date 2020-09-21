@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TRPO_labe_1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" MinHeight="450" Width="800" MinWidth="800">
     <Grid Name="MainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="0.15*" MaxHeight="55" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Name="buttonsGrid" Grid.Row="0">
@@ -55,6 +55,13 @@
             </StackPanel>
             <Button Name="btnCancel" Grid.Column="2" Background="White" Content="Отменить" Foreground="Red" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnCancel_Click"/>
         </Grid>
-        <RichTextBox x:Name="textBox" Grid.Row="1" KeyDown="textBox_KeyDown" FontSize="16"/>
+        <RichTextBox x:Name="textBox" Grid.Row="1" KeyDown="textBox_KeyDown" FontSize="16">
+            <RichTextBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Открыть файл" Click="OpenFileDialog_Click"/>
+                    <MenuItem Header="Сохранить файл" Click="SaveFileDialog_Click"/>
+                </ContextMenu>
+            </RichTextBox.ContextMenu>
+        </RichTextBox>
     </Grid>
 </Window>

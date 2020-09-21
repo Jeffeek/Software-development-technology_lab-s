@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace TRPO_labe_1
 {
@@ -26,23 +28,27 @@ namespace TRPO_labe_1
         private void btnFind_Click(object sender, RoutedEventArgs e)
         {
             ReloadTextBox();
-            var collection = GetMatchCollection();
-            foreach (Match match in collection)
+            if (!String.IsNullOrEmpty(findTextBox.Text))
             {
-                int firstPos = match.Index;
-                int lastPos = match.Index + match.Length;
-                var documentContent = textBox.Document.ContentStart;
-                var firstPointer = FindPointerAtTextOffset(documentContent, firstPos, false);
-                var lastPointer = FindPointerAtTextOffset(documentContent, lastPos, false);
-                var range = new TextRange(firstPointer, lastPointer);
-                range.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Aquamarine);
+                var collection = GetMatchCollection();
+                foreach (Match match in collection)
+                {
+                    int firstPos = match.Index;
+                    int lastPos = match.Index + match.Length;
+                    var documentContent = textBox.Document.ContentStart;
+                    var firstPointer = FindPointerAtTextOffset(documentContent, firstPos, false);
+                    var lastPointer = FindPointerAtTextOffset(documentContent, lastPos, false);
+                    var range = new TextRange(firstPointer, lastPointer);
+                    range.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Aquamarine);
+                }
+                findTextBox.Text = String.Empty;
             }
         }
 
         private void ReloadTextBox()
         {
-            var startrange = new TextRange(textBox.Document.ContentStart, textBox.Document.ContentEnd);
-            startrange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.White);
+            var textRange = new TextRange(textBox.Document.ContentStart, textBox.Document.ContentEnd);
+            textRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.White);
         }
 
         private TextPointer FindPointerAtTextOffset(TextPointer from, int offset, bool seekStart)
@@ -93,13 +99,46 @@ namespace TRPO_labe_1
 
         private void btnReplace_Click(object sender, RoutedEventArgs e)
         {
-            var textRange = new TextRange(textBox.Document.ContentStart, textBox.Document.ContentEnd);
-            textRange.Text = textRange.Text.Replace(findReplaceTextBox.Text, findReplaceTextBox2.Text);
+            if (!String.IsNullOrWhiteSpace(findReplaceTextBox.Text))
+            {
+                if (String.IsNullOrWhiteSpace(findReplaceTextBox2.Text))
+                    findReplaceTextBox2.Text = " ";
+                var textRange = new TextRange(textBox.Document.ContentStart, textBox.Document.ContentEnd);
+                textRange.Text = textRange.Text.Replace(findReplaceTextBox.Text, findReplaceTextBox2.Text);
+                findReplaceTextBox.Text = String.Empty;
+                findReplaceTextBox2.Text = String.Empty;
+            }
+            else
+                MessageBox.Show("ты шо делаешь, убери", "я не шучу", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        private void textBox_KeyDown(object sender, KeyEventArgs e)
+        private void textBox_KeyDown(object sender, KeyEventArgs e) => ReloadTextBox();
+
+        private void OpenFileDialog_Click(object sender, RoutedEventArgs e)
         {
-            ReloadTextBox();
+            string text;
+            OpenFileDialog dialog = new OpenFileDialog();
+            //dialog.Filter = ".txt|.txt";
+            dialog.Multiselect = false;
+            dialog.InitialDirectory = $"{Directory.GetCurrentDirectory()}";
+            if (dialog.ShowDialog().Value)
+            {
+                FileSettings.FilePath = dialog.FileName;
+                using (var reader = new StreamReader(FileSettings.FilePath)) 
+                    text = reader.ReadToEnd();
+                var textRange = new TextRange(textBox.Document.ContentStart, textBox.Document.ContentEnd);
+                textRange.Text = text;
+            }
+        }
+
+        private void SaveFileDialog_Click(object sender, RoutedEventArgs e)
+        {
+            var textRange = new TextRange(textBox.Document.ContentStart, textBox.Document.ContentEnd);
+            var text = textRange.Text;
+            using (var writer = new StreamWriter(FileSettings.FilePath))
+            {
+                writer.Write(text);
+            }
         }
     }
 }
