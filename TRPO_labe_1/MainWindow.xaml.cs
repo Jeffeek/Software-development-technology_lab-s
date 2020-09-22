@@ -118,7 +118,7 @@ namespace TRPO_labe_1
         {
             string text;
             OpenFileDialog dialog = new OpenFileDialog();
-            //dialog.Filter = ".txt|.txt";
+            dialog.Filter = "txt|*.txt";
             dialog.Multiselect = false;
             dialog.InitialDirectory = $"{Directory.GetCurrentDirectory()}";
             if (dialog.ShowDialog().Value)
