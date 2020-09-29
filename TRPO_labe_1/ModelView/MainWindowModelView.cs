@@ -3,6 +3,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using TRPO_labe_1.Model;
 using TRPO_labe_1.Model.Command;
+using RichTextBox = Xceed.Wpf.Toolkit.RichTextBox;
 
 namespace TRPO_labe_1.ModelView
 {
@@ -66,9 +67,8 @@ namespace TRPO_labe_1.ModelView
 
         private bool CanFindTextCommandExecute(object obj)
         {
-            if (obj is string str)
-                if (string.IsNullOrEmpty(str)) return true;
-            return false;
+            if (string.IsNullOrWhiteSpace(FindText)) return false;
+            return true;
         }
 
         #endregion

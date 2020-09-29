@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TRPO_labe_1"
-        xmlns:helper="clr-namespace:TRPO_labe_1.Model"
         xmlns:vm="clr-namespace:TRPO_labe_1.ModelView"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="450" Width="800" MinWidth="800">
     <Window.DataContext>
@@ -116,11 +116,14 @@
                 Foreground="Red" 
                 HorizontalContentAlignment="Center" 
                 VerticalContentAlignment="Center"
-                Command="{Binding UndoCommand}"/>
+                Command="{Binding UndoCommand}"
+                CommandParameter="{Binding ElementName=Box}"/>
         </Grid>
-        <RichTextBox
+        <xctk:RichTextBox
+            Name="Box"
             Grid.Row="1"
-            FontSize="16">
+            FontSize="16"
+            Text="{Binding Text, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}">
             <RichTextBox.ContextMenu>
                 <ContextMenu>
                     <MenuItem 
@@ -131,6 +134,6 @@
                         Click="SaveFileDialog_Click"/>
                 </ContextMenu>
             </RichTextBox.ContextMenu>
-        </RichTextBox>
+        </xctk:RichTextBox>
     </Grid>
 </Window>

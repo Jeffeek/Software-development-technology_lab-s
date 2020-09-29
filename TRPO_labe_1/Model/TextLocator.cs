@@ -5,15 +5,15 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using Xceed.Wpf.Toolkit;
 
 namespace TRPO_labe_1.Model
 {
     static class TextLocator
     {
-        public static void FillTextWithColor(object textBox, string findText)
+        public static void FillTextWithColor(RichTextBox textBox, string findText)
         {
             ReloadTextBox(textBox);
             if (textBox is RichTextBox rtb)
@@ -34,7 +34,7 @@ namespace TRPO_labe_1.Model
             }
         }
 
-        private static void ReloadTextBox(object obj)
+        private static void ReloadTextBox(RichTextBox obj)
         {
             if (obj is RichTextBox rcb)
             {
