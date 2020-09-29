@@ -16,6 +16,7 @@ namespace TRPO_labe_1.ModelView
         public ICommand FindTextCommand { get; }
         public ICommand UndoCommand { get; }
         public ICommand ReplaceCommand { get; }
+        public ICommand RestoreTextBoxCommand { get; }
 
         #region Props of text
 
@@ -39,7 +40,7 @@ namespace TRPO_labe_1.ModelView
 
         public string FindAndReplaceOnText
         {
-            get => _findAndReplaceText;
+            get => _findAndReplaceOnText;
             set => SetValue(ref _findAndReplaceOnText, value, nameof(FindAndReplaceOnText));
         }
 
@@ -71,20 +72,23 @@ namespace TRPO_labe_1.ModelView
             return true;
         }
 
+
         #endregion
 
         #region Replace Command
 
         private void OnFindAndReplaceExecuted(object obj)
         {
-            if (obj is TextBox rtb)
+            if (obj is RichTextBox rtb)
             {
-
+                TextLocator.FindAndReplace(rtb, FindAndReplaceText, FindAndReplaceOnText);
             }
         }
 
         private bool CanFindAndReplaceExecute(object obj) =>
-            !string.IsNullOrWhiteSpace(FindAndReplaceText) && !string.IsNullOrWhiteSpace(FindAndReplaceOnText);
+            !string.IsNullOrWhiteSpace(FindAndReplaceText) && 
+            !string.IsNullOrWhiteSpace(FindAndReplaceOnText) &&
+            !string.IsNullOrWhiteSpace(Text);
 
         #endregion
 

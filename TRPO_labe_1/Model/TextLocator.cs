@@ -34,7 +34,7 @@ namespace TRPO_labe_1.Model
             }
         }
 
-        private static void ReloadTextBox(RichTextBox obj)
+        public static void ReloadTextBox(RichTextBox obj)
         {
             if (obj is RichTextBox rcb)
             {
@@ -88,7 +88,7 @@ namespace TRPO_labe_1.Model
         public static void FindAndReplace(RichTextBox rtb, string findText, string replaceText)
         {
             var textRange = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
-            textRange.Text = textRange.Text.Replace(textRange.Text, replaceText);
+            textRange.Text = textRange.Text.Replace(findText, replaceText);
         }
     }
 }

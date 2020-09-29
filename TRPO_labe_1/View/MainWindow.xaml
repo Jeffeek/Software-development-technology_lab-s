@@ -30,7 +30,8 @@
                     Height="30" 
                     HorizontalContentAlignment="Center" 
                     VerticalContentAlignment="Center"
-                    Command="{Binding FindTextCommand}"/>
+                    Command="{Binding FindTextCommand}"
+                    CommandParameter="{Binding ., ElementName=Box}"/>
                 <Grid Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -57,7 +58,7 @@
                         VerticalAlignment="Center" 
                         AutomationProperties.HelpText="Текст, который нужно найти"
                         Width="Auto"
-                        Text="{Binding FindText, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        Text="{Binding FindText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"/>
                 </Grid>
             </StackPanel>
             <StackPanel 
@@ -69,7 +70,8 @@
                     Height="30"
                     HorizontalContentAlignment="Center" 
                     VerticalContentAlignment="Center"
-                    Command="{Binding ReplaceCommand}"/>
+                    Command="{Binding ReplaceCommand}"
+                    CommandParameter="{Binding ., ElementName=Box}"/>
                 <Grid Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -93,7 +95,7 @@
                         VerticalAlignment="Center" 
                         AutomationProperties.HelpText="Текст, который нужно найти"
                         Width="Auto"
-                        Text="{Binding FindAndReplaceText, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"/>
+                        Text="{Binding FindAndReplaceText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"/>
                     <TextBlock 
                         Grid.Column="2" 
                         FontSize="16"
@@ -106,7 +108,7 @@
                         VerticalAlignment="Center"
                         AutomationProperties.HelpText="Текст, на который нужно заменить"
                         Width="Auto"
-                        Text="{Binding FindAndReplaceOnText, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"/>
+                        Text="{Binding FindAndReplaceOnText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"/>
                 </Grid>
             </StackPanel>
             <Button
@@ -117,12 +119,13 @@
                 HorizontalContentAlignment="Center" 
                 VerticalContentAlignment="Center"
                 Command="{Binding UndoCommand}"
-                CommandParameter="{Binding ElementName=Box}"/>
+                CommandParameter="{Binding ., ElementName=Box}"/>
         </Grid>
         <xctk:RichTextBox
-            Name="Box"
+            x:Name="Box"
             Grid.Row="1"
             FontSize="16"
+            TextChanged="{Binding RestoreTextBoxCommand}"
             Text="{Binding Text, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}">
             <RichTextBox.ContextMenu>
                 <ContextMenu>
