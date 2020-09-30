@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using TRPO_labe_1.Model;
 using TRPO_labe_1.Model.Command;
 using RichTextBox = Xceed.Wpf.Toolkit.RichTextBox;
@@ -9,14 +7,26 @@ namespace TRPO_labe_1.ModelView
 {
     class MainWindowModelView : ModelViewBase
     {
+        #region Fields
+
         private string _text;
         private string _findText;
         private string _findAndReplaceText;
         private string _findAndReplaceOnText;
+
+        #endregion
+
+        #region CommandProps
+
         public ICommand FindTextCommand { get; }
         public ICommand UndoCommand { get; }
         public ICommand ReplaceCommand { get; }
-        public ICommand RestoreTextBoxCommand { get; }
+        public ICommand SaveFileCommand { get; }
+        public ICommand LoadFileCommand { get; }
+
+        #endregion
+
+        #region Commands
 
         #region Props of text
 
@@ -72,7 +82,6 @@ namespace TRPO_labe_1.ModelView
             return true;
         }
 
-
         #endregion
 
         #region Replace Command
@@ -86,18 +95,38 @@ namespace TRPO_labe_1.ModelView
         }
 
         private bool CanFindAndReplaceExecute(object obj) =>
-            !string.IsNullOrWhiteSpace(FindAndReplaceText) && 
+            !string.IsNullOrWhiteSpace(FindAndReplaceText) &&
             !string.IsNullOrWhiteSpace(FindAndReplaceOnText) &&
             !string.IsNullOrWhiteSpace(Text);
 
         #endregion
 
+        #region FileCommands
+
+        private void OnSaveFileCommandExecuted(object obj)
+        {
+            FileHelper.SaveInfoToFile(Text);
+        }
+
+        private void OnLoadFileCommandExecuted(object obj)
+        {
+            Text = FileHelper.LoadInfoFromFile(FileSettings.FilePath);
+        }
+
+        private bool CanSaveFileCommandExecute(object obj) => Text != string.Empty;
+        private bool CanLoadFileCommandExecute(object obj) => true;
+
+        #endregion
+
+        #endregion
 
         public MainWindowModelView()
         {
             FindTextCommand = new RelayCommand(OnFindTextCommandExecuted, CanFindTextCommandExecute);
             UndoCommand = new RelayCommand(OnUndoTextBoxExecuted, CanUndoTextBoxExecute);
             ReplaceCommand = new RelayCommand(OnFindAndReplaceExecuted, CanFindAndReplaceExecute);
+            SaveFileCommand = new RelayCommand(OnSaveFileCommandExecuted, CanSaveFileCommandExecute);
+            LoadFileCommand = new RelayCommand(OnLoadFileCommandExecuted, CanLoadFileCommandExecute);
         }
     }
 }

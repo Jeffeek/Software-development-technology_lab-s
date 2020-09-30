@@ -58,7 +58,7 @@
                         VerticalAlignment="Center" 
                         AutomationProperties.HelpText="Текст, который нужно найти"
                         Width="Auto"
-                        Text="{Binding FindText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"/>
+                        Text="{Binding FindText, Mode=TwoWay, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
             </StackPanel>
             <StackPanel 
@@ -95,7 +95,7 @@
                         VerticalAlignment="Center" 
                         AutomationProperties.HelpText="Текст, который нужно найти"
                         Width="Auto"
-                        Text="{Binding FindAndReplaceText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"/>
+                        Text="{Binding FindAndReplaceText, Mode=TwoWay, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" Margin="0.2,4,0,-0.4"/>
                     <TextBlock 
                         Grid.Column="2" 
                         FontSize="16"
@@ -108,7 +108,7 @@
                         VerticalAlignment="Center"
                         AutomationProperties.HelpText="Текст, на который нужно заменить"
                         Width="Auto"
-                        Text="{Binding FindAndReplaceOnText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"/>
+                        Text="{Binding FindAndReplaceOnText, Mode=TwoWay, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
             </StackPanel>
             <Button
@@ -125,16 +125,15 @@
             x:Name="Box"
             Grid.Row="1"
             FontSize="16"
-            TextChanged="{Binding RestoreTextBoxCommand}"
             Text="{Binding Text, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}">
             <RichTextBox.ContextMenu>
                 <ContextMenu>
                     <MenuItem 
                         Header="Открыть файл" 
-                        Click="OpenFileDialog_Click"/>
+                        Command="{Binding LoadFileCommand}"/>
                     <MenuItem
-                        Header="Сохранить файл" 
-                        Click="SaveFileDialog_Click"/>
+                        Header="Сохранить файл"
+                        Command="{Binding SaveFileCommand}"/>
                 </ContextMenu>
             </RichTextBox.ContextMenu>
         </xctk:RichTextBox>

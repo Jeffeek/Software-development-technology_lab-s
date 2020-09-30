@@ -34,13 +34,12 @@ namespace TRPO_labe_1.Model
             }
         }
 
-        public static void ReloadTextBox(RichTextBox obj)
+        public static void ReloadTextBox(RichTextBox obj, bool needToUndo = false)
         {
-            if (obj is RichTextBox rcb)
-            {
-                var textRange = new TextRange(rcb.Document.ContentStart, rcb.Document.ContentEnd);
-                textRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.White);
-            }
+            var textRange = new TextRange(obj.Document.ContentStart, obj.Document.ContentEnd);
+            textRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.White);
+            if (needToUndo)
+                obj.Undo();
         }
 
         private static TextPointer FindPointerAtTextOffset(TextPointer from, int offset, bool seekStart)

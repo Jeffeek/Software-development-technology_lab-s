@@ -80,6 +80,7 @@
     </Compile>
     <Compile Include="Model\Command\CommandBase.cs" />
     <Compile Include="Model\Command\RelayCommand.cs" />
+    <Compile Include="Model\FileHelper.cs" />
     <Compile Include="Model\FileSettings.cs" />
     <Compile Include="Model\TextLocator.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
