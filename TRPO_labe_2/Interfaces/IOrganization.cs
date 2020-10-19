@@ -9,6 +9,7 @@ namespace TRPO_labe_2.Interfaces
 {
     interface IOrganization
     {
+        string Name { get; }
         List<PossessionBase> Possessions { get; }
         void AddPossession();
         string Info();

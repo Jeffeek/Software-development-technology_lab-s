@@ -9,7 +9,8 @@ namespace TRPO_labe_2.Models
 {
     abstract class OrganizationBase : IOrganization
     {
-        public abstract List<PossessionBase> Possessions { get; }
+        public string Name => GetType().Name;
+        public List<PossessionBase> Possessions { get; } = new List<PossessionBase>();
         public abstract void AddPossession();
         public abstract string Info();
         public int CountOfAllClerks() => Possessions.Sum(x => x.CountOfClerks);

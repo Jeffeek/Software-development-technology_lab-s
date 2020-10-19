@@ -8,6 +8,7 @@ namespace TRPO_labe_2.Interfaces
 {
     interface IPossession
     {
+        string Name { get; }
         string Info();
         int CountOfClerks { get; }
     }

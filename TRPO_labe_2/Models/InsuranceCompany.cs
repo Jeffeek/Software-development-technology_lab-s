@@ -8,14 +8,19 @@ namespace TRPO_labe_2.Models
 {
     class InsuranceCompany : OrganizationBase
     {
-        public override List<PossessionBase> Possessions { get; }
         public override void AddPossession()
         {
             Possessions.Add(new Office());
         }
+
         public override string Info()
         {
-            return "Страховая компания!";
+            return "Страховая компания! У нас есть офисы!";
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

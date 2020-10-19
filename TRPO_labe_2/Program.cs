@@ -12,7 +12,13 @@ namespace TRPO_labe_2
     {
         static void Main(string[] args)
         {
-            
+            IOrganization oilOrganization = new OilAndGasCompany();
+            IOrganization insuranceOrganization = new InsuranceCompany();
+
+            Console.WriteLine(oilOrganization.Name);
+            Console.WriteLine(insuranceOrganization.Name);
+            Console.WriteLine(oilOrganization.Info());
+            Console.WriteLine(insuranceOrganization.Info());
         }
     }
 }

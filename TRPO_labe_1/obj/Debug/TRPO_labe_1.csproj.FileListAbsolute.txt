@@ -27,3 +27,4 @@ C:\Users\misha\source\repos\TRPO_labe_1\TRPO_labe_1\obj\Debug\TRPO_labe_1.csproj
 C:\Users\misha\source\repos\TRPO_labe_1\TRPO_labe_1\obj\Debug\TRPO_labe_1.exe
 C:\Users\misha\source\repos\TRPO_labe_1\TRPO_labe_1\obj\Debug\TRPO_labe_1.pdb
 C:\Users\misha\source\repos\TRPO_labe_1\TRPO_labe_1\obj\Debug\TRPO_labe_1.csprojAssemblyReference.cache
+E:\projectsVS\GitHub\TRPO_labe_1\TRPO_labe_1\obj\Debug\TRPO_labe_1.csprojAssemblyReference.cache
