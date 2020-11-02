@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRPO_labe_2", "TRPO_labe_2\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRPO_labe_3", "TRPO_labe_3\TRPO_labe_3.csproj", "{93A4666D-FFE9-4BC9-BCAE-D02B9F2368BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRPO_labe_4", "TRPO_labe_4\TRPO_labe_4.csproj", "{DF8422EC-D95D-4B79-A6E8-65A90901FF5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRPO_labe_5", "TRPO_labe_5\TRPO_labe_5.csproj", "{995C4020-3B47-480C-BF57-089B273F839D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{93A4666D-FFE9-4BC9-BCAE-D02B9F2368BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93A4666D-FFE9-4BC9-BCAE-D02B9F2368BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93A4666D-FFE9-4BC9-BCAE-D02B9F2368BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF8422EC-D95D-4B79-A6E8-65A90901FF5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF8422EC-D95D-4B79-A6E8-65A90901FF5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF8422EC-D95D-4B79-A6E8-65A90901FF5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF8422EC-D95D-4B79-A6E8-65A90901FF5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{995C4020-3B47-480C-BF57-089B273F839D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{995C4020-3B47-480C-BF57-089B273F839D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{995C4020-3B47-480C-BF57-089B273F839D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{995C4020-3B47-480C-BF57-089B273F839D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
