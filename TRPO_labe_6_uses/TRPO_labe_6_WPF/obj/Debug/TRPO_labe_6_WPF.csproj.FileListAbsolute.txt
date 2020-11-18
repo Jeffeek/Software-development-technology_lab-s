@@ -1,0 +1,14 @@
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\TRPO_labe_6_WPF.exe.config
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\TRPO_labe_6_WPF.exe
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\TRPO_labe_6_WPF.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\obj\Debug\MainWindow.g.cs
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\obj\Debug\App.g.cs
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\obj\Debug\TRPO_labe_6_WPF_MarkupCompile.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\obj\Debug\TRPO_labe_6_WPF_MarkupCompile.lref
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\obj\Debug\MainWindow.baml
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\obj\Debug\TRPO_labe_6_WPF.g.resources
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\obj\Debug\TRPO_labe_6_WPF.Properties.Resources.resources
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\obj\Debug\TRPO_labe_6_WPF.csproj.GenerateResource.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\obj\Debug\TRPO_labe_6_WPF.csproj.CoreCompileInputs.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\obj\Debug\TRPO_labe_6_WPF.exe
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\obj\Debug\TRPO_labe_6_WPF.pdb

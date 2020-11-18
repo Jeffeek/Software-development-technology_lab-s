@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics;
 
 namespace TRPO_labe_6
 {
@@ -10,6 +11,7 @@ namespace TRPO_labe_6
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }

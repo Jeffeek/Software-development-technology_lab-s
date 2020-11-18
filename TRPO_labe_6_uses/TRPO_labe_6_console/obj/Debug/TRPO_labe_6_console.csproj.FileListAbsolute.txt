@@ -1,0 +1,11 @@
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_console\obj\Debug\TRPO_labe_6_console.csprojAssemblyReference.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_console\obj\Debug\TRPO_labe_6_console.csproj.CoreCompileInputs.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_console\bin\Debug\TRPO_labe_6_console.exe.config
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_console\bin\Debug\TRPO_labe_6_console.exe
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_console\bin\Debug\TRPO_labe_6_console.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_console\bin\Debug\TRPO_labe_6.dll
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_console\bin\Debug\TRPO_labe_6.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_console\bin\Debug\TRPO_labe_6.dll.config
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_console\obj\Debug\TRPO_labe_6_console.csproj.CopyComplete
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_console\obj\Debug\TRPO_labe_6_console.exe
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_console\obj\Debug\TRPO_labe_6_console.pdb

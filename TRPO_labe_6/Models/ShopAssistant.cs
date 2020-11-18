@@ -6,11 +6,21 @@ namespace TRPO_labe_6.Models
     [Serializable]
     public class ShopAssistant : IEquatable<ShopAssistant>
     {
+        public override string ToString()
+        {
+            return $"ShopAssistant - {nameof(Name)}: {Name}, {nameof(Age)}: {Age}, {nameof(HiringDate)}: {HiringDate}";
+        }
+
         public ShopAssistant(string name, int age, DateTime hiringDate)
         {
             Name = name;
             Age = age;
             HiringDate = hiringDate;
+        }
+
+        public ShopAssistant()
+        {
+            
         }
 
         private const int DefaultSalary = 10000;

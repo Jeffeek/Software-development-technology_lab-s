@@ -1,0 +1,6 @@
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_5\bin\Debug\TRPO_labe_5.exe.config
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_5\bin\Debug\TRPO_labe_5.exe
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_5\bin\Debug\TRPO_labe_5.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_5\obj\Debug\TRPO_labe_5.csproj.CoreCompileInputs.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_5\obj\Debug\TRPO_labe_5.exe
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_5\obj\Debug\TRPO_labe_5.pdb

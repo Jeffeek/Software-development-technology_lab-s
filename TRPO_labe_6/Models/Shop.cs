@@ -9,12 +9,23 @@ namespace TRPO_labe_6.Models
     {
         public string Name { get; set; }
         public List<ShopAssistant> Assistants { get; }
-        public Dictionary<Product, int> Products { get; }
+        public XmlSerializableDictionary<Product, int> Products { get; }
+
+        public override string ToString()
+        {
+            return $"Shop - {nameof(Name)} : {Name}";
+        }
 
         public Shop(string name)
         {
+            Name = name;
             Assistants = new List<ShopAssistant>();
-            Products = new Dictionary<Product, int>();
+            Products = new XmlSerializableDictionary<Product, int>();
+        }
+
+        public Shop()
+        {
+            
         }
 
         public void AddProduct(Product product)

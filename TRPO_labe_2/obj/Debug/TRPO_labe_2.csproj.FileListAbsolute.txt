@@ -5,3 +5,9 @@ E:\projectsVS\GitHub\TRPO_labe_1\TRPO_labe_2\obj\Debug\TRPO_labe_2.csprojAssembl
 E:\projectsVS\GitHub\TRPO_labe_1\TRPO_labe_2\obj\Debug\TRPO_labe_2.csproj.CoreCompileInputs.cache
 E:\projectsVS\GitHub\TRPO_labe_1\TRPO_labe_2\obj\Debug\TRPO_labe_2.exe
 E:\projectsVS\GitHub\TRPO_labe_1\TRPO_labe_2\obj\Debug\TRPO_labe_2.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_2\bin\Debug\TRPO_labe_2.exe.config
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_2\bin\Debug\TRPO_labe_2.exe
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_2\bin\Debug\TRPO_labe_2.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_2\obj\Debug\TRPO_labe_2.csproj.CoreCompileInputs.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_2\obj\Debug\TRPO_labe_2.exe
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_2\obj\Debug\TRPO_labe_2.pdb

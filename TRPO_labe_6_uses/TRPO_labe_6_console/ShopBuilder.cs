@@ -3,7 +3,7 @@ using TRPO_labe_6.Models;
 
 namespace TRPO_labe_6_console
 {
-    class ShopBuilder
+    public class ShopBuilder
     {
         public Shop Build()
         {

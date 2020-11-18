@@ -4,3 +4,4 @@ C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6\bin\Debug\TRPO_labe_6.pd
 C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6\obj\Debug\TRPO_labe_6.csproj.CoreCompileInputs.cache
 C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6\obj\Debug\TRPO_labe_6.dll
 C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6\obj\Debug\TRPO_labe_6.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6\obj\Debug\TRPO_labe_6.csprojAssemblyReference.cache

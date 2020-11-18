@@ -9,7 +9,7 @@ using TRPO_labe_6.Models;
 
 namespace TRPO_labe_6_console
 {
-    class ShopsDeserializer
+    public class ShopsDeserializer
     {
         public string Path { get; }
 
@@ -21,7 +21,7 @@ namespace TRPO_labe_6_console
         public List<Shop> GetAll()
         {
             XmlSerializer deserializer = new XmlSerializer(typeof(List<Shop>));
-            using (FileStream fs = new FileStream(Path, FileMode.Open))
+            using (FileStream fs = new FileStream(Path, FileMode.OpenOrCreate))
             {
                 List<Shop> shops = deserializer.Deserialize(fs) as List<Shop>;
                 return shops;
