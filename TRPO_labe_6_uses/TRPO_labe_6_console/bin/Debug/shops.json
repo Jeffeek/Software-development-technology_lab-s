@@ -1,0 +1,47 @@
+[
+    {
+        "Assistants": [
+            {
+                "Age": 56,
+                "HiringDate": "\/Date(1577826000000+0300)\/",
+                "Name": "asd",
+                "SelledProducts": []
+            }
+        ],
+        "Name": "qwe",
+        "Products": [
+            {
+                "Item1": {
+                    "Name": "dfghjgffghjk",
+                    "Price": 4567
+                },
+                "Item2": 1
+            }
+        ]
+    },
+    {
+        "Assistants": [
+            {
+                "Age": 78,
+                "HiringDate": "\/Date(1567976400000+0300)\/",
+                "Name": "dfghjk",
+                "SelledProducts": [
+                    {
+                        "Name": "dfghjk",
+                        "Price": 45678
+                    }
+                ]
+            }
+        ],
+        "Name": "ert",
+        "Products": [
+            {
+                "Item1": {
+                    "Name": "dfghjk",
+                    "Price": 45678
+                },
+                "Item2": 1
+            }
+        ]
+    }
+]

@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using System.Xml;
 
 namespace TRPO_labe_6.Models
 {
-    [Serializable]
+    [DataContract]
     public class Product : IEquatable<Product>
     {
         public Product()
@@ -16,7 +17,9 @@ namespace TRPO_labe_6.Models
             return $"Product - {nameof(Name)}: {Name}, {nameof(Price)}: {Price}";
         }
 
+        [DataMember]
         public string Name { get; set; }
+        [DataMember]
         public int Price { get; set; }
 
         public Product(string name, int price)

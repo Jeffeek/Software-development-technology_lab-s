@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
@@ -20,10 +21,10 @@ namespace TRPO_labe_6_console
 
         public List<Shop> GetAll()
         {
-            XmlSerializer deserializer = new XmlSerializer(typeof(List<Shop>));
+            DataContractJsonSerializer deserializer = new DataContractJsonSerializer(typeof(List<Shop>));
             using (FileStream fs = new FileStream(Path, FileMode.OpenOrCreate))
             {
-                List<Shop> shops = deserializer.Deserialize(fs) as List<Shop>;
+                List<Shop> shops = deserializer.ReadObject(fs) as List<Shop>;
                 return shops;
             }
         }
