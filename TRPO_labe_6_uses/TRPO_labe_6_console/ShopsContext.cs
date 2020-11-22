@@ -16,7 +16,7 @@ namespace TRPO_labe_6_console
 
         public ShopsContext()
         {
-            Shops = GetBoolAnswer("Десериализовать ли магазины из файла? \n1. Да\n2.Нет", x => x == 1) ? new ShopsDeserializer($"{Directory.GetCurrentDirectory()}//shops.xml").GetAll() : new List<Shop>();
+            Shops = GetBoolAnswer("Десериализовать ли магазины из файла? \n1. Да\n2. Нет", x => x == 1) ? new ShopsDeserializer($"{Directory.GetCurrentDirectory()}//shops.json").GetAll() : new List<Shop>();
             StartContext();
         }
 
@@ -42,7 +42,7 @@ namespace TRPO_labe_6_console
 
                         case 2:
                         {
-                            var serializer = new ShopsSerializer($"{Directory.GetCurrentDirectory()}//shops.xml");
+                            var serializer = new ShopsSerializer($"{Directory.GetCurrentDirectory()}//shops.json");
                             serializer.RewriteAll(Shops);
                             break;
                         }
@@ -106,7 +106,11 @@ namespace TRPO_labe_6_console
                 case 4:
                 {
                     var assist = GetShopAssistant(shop);
+                    if (assist == null)
+                        return;
                     var product = GetProduct(shop);
+                    if (product == null)
+                        return;
                     shop.SellProduct(assist, product);
                     break;
                 }
@@ -131,6 +135,11 @@ namespace TRPO_labe_6_console
 
         private ShopAssistant GetShopAssistant(Shop shop)
         {
+            if (shop.Assistants.Count == 0)
+            {
+                Console.WriteLine("Ассистентов нет!");
+                return null;
+            }
             Console.WriteLine("Список работников: ");
             for (int i = 0; i < shop.Assistants.Count; i++)
                 Console.WriteLine($"{i} : {shop.Assistants[i]}");
@@ -141,12 +150,17 @@ namespace TRPO_labe_6_console
 
         private Product GetProduct(Shop shop)
         {
+            if (shop.Products.Count == 0)
+            {
+                Console.WriteLine("В магазине нет продуктов!");
+                return null;
+            }
             Console.WriteLine("Список продуктов: ");
             for (int i = 0; i < shop.Products.Count; i++)
-                Console.WriteLine($"{i} : {shop.Products.Keys.ElementAt(i)}");
+                Console.WriteLine($"{i} : {shop.Products.ElementAt(i).Item1}");
             int index = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
             if (index < 0 || index >= shop.Products.Count) throw new IndexOutOfRangeException();
-            return shop.Products.Keys.ElementAt(index);
+            return shop.Products.ElementAt(index).Item1;
         }
 
         private bool GetBoolAnswer(string text, Func<int, bool> func)

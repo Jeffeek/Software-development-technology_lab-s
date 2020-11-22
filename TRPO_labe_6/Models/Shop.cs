@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 
 namespace TRPO_labe_6.Models
 {
-    [Serializable]
+    [DataContract]
     public class Shop
     {
+        [DataMember]
         public string Name { get; set; }
-        public List<ShopAssistant> Assistants { get; }
-        public XmlSerializableDictionary<Product, int> Products { get; }
+        [DataMember]
+        public List<ShopAssistant> Assistants { get; set; }
+        [DataMember]
+        public List<ValueTuple<Product, int>> Products { get; set; }
 
         public override string ToString()
         {
@@ -20,7 +24,7 @@ namespace TRPO_labe_6.Models
         {
             Name = name;
             Assistants = new List<ShopAssistant>();
-            Products = new XmlSerializableDictionary<Product, int>();
+            Products = new List<(Product, int)>();
         }
 
         public Shop()
@@ -30,22 +34,25 @@ namespace TRPO_labe_6.Models
 
         public void AddProduct(Product product)
         {
-            if (Products.Keys.SingleOrDefault(x => x.Equals(product)) == null)
-                Products.Add(product, 1);
+            var itemProduct = Products.SingleOrDefault(x => x.Item1.Equals(product));
+            if (itemProduct.Item1 == null)
+                Products.Add((product, 1));
             else
-                Products[product]++;
+                itemProduct.Item2++;
         }
 
         public bool SellProduct(ShopAssistant assistant, Product product)
         {
-            if (Assistants.SingleOrDefault(x => x.Equals(assistant)) == null)
+            var assist = Assistants.SingleOrDefault(x => x.Equals(assistant));
+            var itemProduct = Products.SingleOrDefault(x => x.Item1.Equals(product));
+            if (assist == null)
                 return false;
-            if (Products.Keys.SingleOrDefault(x => x.Equals(product)) == null)
+            if (itemProduct.Item1 == null)
                 return false;
-            if (Products[product] == 0)
+            if (itemProduct.Item2 == 0)
                 return false;
-            assistant.SellProduct(product);
-            Products[product]--;
+            assistant.SellProduct(itemProduct.Item1);
+            itemProduct.Item2--;
             return true;
         }
 

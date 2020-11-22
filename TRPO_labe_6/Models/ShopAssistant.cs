@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace TRPO_labe_6.Models
 {
-    [Serializable]
+    [DataContract]
     public class ShopAssistant : IEquatable<ShopAssistant>
     {
         public override string ToString()
@@ -16,18 +17,23 @@ namespace TRPO_labe_6.Models
             Name = name;
             Age = age;
             HiringDate = hiringDate;
+            SelledProducts = new List<Product>();
         }
 
         public ShopAssistant()
         {
-            
+            SelledProducts = new List<Product>();
         }
 
         private const int DefaultSalary = 10000;
-        public List<Product> SelledProducts { get; }
-        public string Name { get; }
-        public int Age { get; }
-        public DateTime HiringDate { get; }
+        [DataMember]
+        public List<Product> SelledProducts { get; set; }
+        [DataMember]
+        public string Name { get; set; }
+        [DataMember]
+        public int Age { get; set; }
+        [DataMember]
+        public DateTime HiringDate { get; set; }
 
 
         public void SellProduct(Product product)
