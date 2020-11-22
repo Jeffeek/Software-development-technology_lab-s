@@ -5,3 +5,10 @@ C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6\obj\Debug\TRPO_labe_6.cs
 C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6\obj\Debug\TRPO_labe_6.dll
 C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6\obj\Debug\TRPO_labe_6.pdb
 C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6\obj\Debug\TRPO_labe_6.csprojAssemblyReference.cache
+E:\projectsVS\GitHub\TRPO_labe_1\TRPO_labe_6\bin\Debug\TRPO_labe_6.dll.config
+E:\projectsVS\GitHub\TRPO_labe_1\TRPO_labe_6\bin\Debug\TRPO_labe_6.dll
+E:\projectsVS\GitHub\TRPO_labe_1\TRPO_labe_6\bin\Debug\TRPO_labe_6.pdb
+E:\projectsVS\GitHub\TRPO_labe_1\TRPO_labe_6\obj\Debug\TRPO_labe_6.csprojAssemblyReference.cache
+E:\projectsVS\GitHub\TRPO_labe_1\TRPO_labe_6\obj\Debug\TRPO_labe_6.csproj.CoreCompileInputs.cache
+E:\projectsVS\GitHub\TRPO_labe_1\TRPO_labe_6\obj\Debug\TRPO_labe_6.dll
+E:\projectsVS\GitHub\TRPO_labe_1\TRPO_labe_6\obj\Debug\TRPO_labe_6.pdb
