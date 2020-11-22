@@ -9,7 +9,6 @@ using TRPO_labe_6.Models;
 
 namespace TRPO_labe_6_console
 {
-    //TODOL нихера не сделано
     public class ShopsContext
     {
         private List<Shop> Shops;

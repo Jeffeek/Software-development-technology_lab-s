@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization.Json;
 using System.Xml.Serialization;
 using TRPO_labe_6.Models;
 
@@ -16,10 +17,10 @@ namespace TRPO_labe_6_WPF.Model
 
         public List<Shop> GetAll()
         {
-            XmlSerializer deserializer = new XmlSerializer(typeof(List<Shop>));
+            DataContractJsonSerializer deserializer = new DataContractJsonSerializer(typeof(List<Shop>));
             using (FileStream fs = new FileStream(Path, FileMode.OpenOrCreate))
             {
-                List<Shop> shops = deserializer.Deserialize(fs) as List<Shop>;
+                List<Shop> shops = deserializer.ReadObject(fs) as List<Shop>;
                 return shops;
             }
         }
