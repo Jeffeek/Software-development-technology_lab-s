@@ -99,20 +99,12 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                            <TextBlock 
-                                Text="{Binding InnerProductInstance.Name}"/>
-                            <TextBlock 
-                                Text="{Binding InnerProductInstance.Price}"/>
-                            <TextBlock 
-                                Text="{Binding InnerProductInstance.Count}"/>
-                            <Button 
-                                Content="+" 
-                                CommandParameter="{Binding}" 
-                                Command="{Binding DataContext.IncrementProductCountCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"/>
-                            <Button 
-                                Content="-" 
-                                CommandParameter="{Binding}" 
-                                Command="{Binding DataContext.DecrementProductCountCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"/>
+                            <TextBox 
+                                Text="{Binding Name}"/>
+                            <TextBox 
+                                Text="{Binding Price}"/>
+                            <TextBox 
+                                Text="{Binding Count}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

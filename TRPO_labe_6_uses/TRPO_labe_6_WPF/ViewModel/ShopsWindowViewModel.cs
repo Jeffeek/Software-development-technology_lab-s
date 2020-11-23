@@ -13,7 +13,7 @@ namespace TRPO_labe_6_WPF.ViewModel
     public class ShopsWindowViewModel : ViewModelBase //TODO: V3073 https://www.viva64.com/en/w/v3073/ Not all IDisposable members are properly disposed. Call 'Dispose' when disposing 'ShopsWindowViewModel' class. Inspect: _selectedProduct, _selectedShop.
     {
         private ShopAssistant _selectedShopAssistant;
-        private ProductViewModel _selectedProduct;
+        private Product _selectedProduct;
         private ShopViewModel _selectedShop;
         private ObservableCollection<ShopViewModel> _shops;
 
@@ -28,8 +28,6 @@ namespace TRPO_labe_6_WPF.ViewModel
 
         public ICommand AddProductCommand { get; }
         public ICommand RemoveProductCommand { get; }
-        public ICommand IncrementProductCountCommand { get; }
-        public ICommand DecrementProductCountCommand { get; }
 
 
         public ObservableCollection<ShopViewModel> Shops
@@ -50,7 +48,7 @@ namespace TRPO_labe_6_WPF.ViewModel
             set => SetValue(ref _selectedShopAssistant, value);
         }
 
-        public ProductViewModel SelectedProduct
+        public Product SelectedProduct
         {
             get => _selectedProduct;
             set => SetValue(ref _selectedProduct, value);
@@ -106,7 +104,7 @@ namespace TRPO_labe_6_WPF.ViewModel
 
         private void OnAddProductExecuted()
         {
-            SelectedShop.Products.Add(new ProductViewModel(new Product("Product", 0)));
+            SelectedShop.Products.Add(new Product("Product", 0));
         }
 
         private bool CanRemoveProductExecute() => SelectedProduct != null;
@@ -118,19 +116,6 @@ namespace TRPO_labe_6_WPF.ViewModel
 
         private bool CanFireShopAssistantExecute() => SelectedShopAssistant != null;
 
-        private void OnIncrementProductCount(ProductViewModel product)
-        {
-            product.Count = product.Count + 1;
-        }
-
-        private void OnDecrementProductCount(ProductViewModel product)
-        {
-            product.Count = product.Count - 1;
-            if (product.Count == 0)
-            {
-                OnRemoveProductExecuted();
-            }
-        }
 
         public ShopsWindowViewModel()
         {
@@ -143,8 +128,6 @@ namespace TRPO_labe_6_WPF.ViewModel
             FireAssistantCommand = new RelayCommand(OnFireShopAssistantExecuted, CanFireShopAssistantExecute);
             AddProductCommand = new RelayCommand(OnAddProductExecuted, CanAddProductExecute);
             RemoveProductCommand = new RelayCommand(OnRemoveProductExecuted, CanRemoveProductExecute);
-            IncrementProductCountCommand = new RelayCommand<ProductViewModel>(OnIncrementProductCount);
-            DecrementProductCountCommand = new RelayCommand<ProductViewModel>(OnDecrementProductCount);
         }
     }
 }
