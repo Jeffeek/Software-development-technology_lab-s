@@ -71,6 +71,7 @@
     <Compile Include="Converters\ValueTupleConverterT1.cs" />
     <Compile Include="Model\ShopsDeserializer.cs" />
     <Compile Include="Model\ShopsSerializer.cs" />
+    <Compile Include="Model\ShopViewModel.cs" />
     <Compile Include="View\ShopsWindow.xaml.cs">
       <DependentUpon>ShopsWindow.xaml</DependentUpon>
     </Compile>
@@ -103,9 +104,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Files\shops.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Content Include="Files\shops.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

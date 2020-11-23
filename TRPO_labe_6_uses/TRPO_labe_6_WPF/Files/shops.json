@@ -1,12 +1,14 @@
 [
   {
     "Name": "Shop1",
-    "Assistants": [
+    "Assistants": 
+    [
       {
 
       }
     ],
-    "Products": [
+    "Products": 
+    [
 
     ]
   }

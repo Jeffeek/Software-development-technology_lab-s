@@ -29,7 +29,8 @@ namespace TRPO_labe_6.Models
 
         public Shop()
         {
-            
+            Assistants = new List<ShopAssistant>();
+            Products = new List<(Product, int)>();
         }
 
         public void AddProduct(Product product)

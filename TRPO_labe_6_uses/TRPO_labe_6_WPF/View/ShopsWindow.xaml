@@ -17,8 +17,15 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.05*" />
-            <RowDefinition />
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Menu>
             <MenuItem Background="LightSlateGray" Header="File">
                 <MenuItem Background="LightSlateGray" Command="{Binding LoadShopsCommand}">
@@ -45,96 +52,49 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.3*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="0.1*" />
-            </Grid.RowDefinitions>
-            <Grid Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.3*" />
-                    <ColumnDefinition Width="0.3*" />
-                    <ColumnDefinition Width="0.3*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.1*" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <ListView
-                    Grid.Row="0"
-                    Grid.RowSpan="2"
-                    Grid.Column="0"
-                    ItemsSource="{Binding SelectedShop.Products}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding Converter={StaticResource converters:ValueTupleConverterT1}, Path=Name}" />
-                                <TextBlock Text="{Binding Key.Price}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <ListView
-                    Grid.Row="0"
-                    Grid.RowSpan="2"
-                    Grid.Column="1"
-                    ItemsSource="{Binding SelectedShop.Assistants, Mode=TwoWay}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding Name}" />
-                                <TextBlock Text="{Binding Age}" />
-                                <TextBlock Text="{Binding HiringDate}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <ListView
-                    Grid.Row="0"
-                    Grid.RowSpan="2"
-                    Grid.Column="0"
-                    ItemsSource="{Binding SelectedShop.Products, Mode=TwoWay}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding Key.Name}" />
-                                <TextBlock Text="{Binding Key.Price}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <ListView
-                    Grid.Row="0"
-                    Grid.RowSpan="2"
-                    Grid.Column="2"
-                    ItemsSource="{Binding SelectedShopAssistant.SelledProducts, Mode=TwoWay}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding Name}" />
-                                <TextBlock Text="{Binding Price}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
-        </Grid>
-        <ListView
-            Grid.Row="1"
-            Grid.Column="0"
-            ItemsSource="{Binding Shops, Mode=TwoWay}">
+        <TextBlock Text="Shops" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+        <TextBlock Text="Assistants" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
+        <TextBlock Text="Products" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center"/>
+        <ListView ItemsSource="{Binding Shops}" Grid.Column="0" Grid.Row="2" SelectedItem="{Binding SelectedShop, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text="{Binding Name}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <ListView ItemsSource="{Binding ShopAssistants}" Grid.Column="1" Grid.Row="2" SelectedItem="{Binding SelectedShopAssistant, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="{Binding Age}"/>
+                        <TextBlock Text="{Binding HiringDate, StringFormat='dd.mm.yy'}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView ItemsSource="{Binding SelectedShop.Products}" Grid.Column="2" Grid.Row="2" SelectedItem="{Binding SelectedProduct, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                            <TextBlock Text="Product"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Column="0" Grid.Row="3">
+            <Button Content="Add" Command="{Binding AddShopCommand}"/>
+            <Button Content="Remove" Command="{Binding RemoveShopCommand}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="3">
+            <Button Content="Add" Command="{Binding AddAssistantCommand}"/>
+            <Button Content="Fire" Command="{Binding FireAssistantCommand}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="3">
+            <Button Content="Add"/>
+            <Button Content="Sell"/>
+        </StackPanel>
     </Grid>
 </Window>
