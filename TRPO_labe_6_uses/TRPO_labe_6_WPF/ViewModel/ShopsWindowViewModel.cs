@@ -10,10 +10,10 @@ using TRPO_labe_6_WPF.Model;
 
 namespace TRPO_labe_6_WPF.ViewModel
 {
-    public class ShopsWindowViewModel : ViewModelBase
+    public class ShopsWindowViewModel : ViewModelBase //TODO: V3073 https://www.viva64.com/en/w/v3073/ Not all IDisposable members are properly disposed. Call 'Dispose' when disposing 'ShopsWindowViewModel' class. Inspect: _selectedProduct, _selectedShop.
     {
         private ShopAssistant _selectedShopAssistant;
-        private Product _selectedProduct;
+        private ProductViewModel _selectedProduct;
         private ShopViewModel _selectedShop;
         private ObservableCollection<ShopViewModel> _shops;
 
@@ -27,7 +27,10 @@ namespace TRPO_labe_6_WPF.ViewModel
         public ICommand FireAssistantCommand { get; }
 
         public ICommand AddProductCommand { get; }
-        public ICommand SellProductCommand { get; }
+        public ICommand RemoveProductCommand { get; }
+        public ICommand IncrementProductCountCommand { get; }
+        public ICommand DecrementProductCountCommand { get; }
+
 
         public ObservableCollection<ShopViewModel> Shops
         {
@@ -35,13 +38,10 @@ namespace TRPO_labe_6_WPF.ViewModel
             set => SetValue(ref _shops, value);
         }
 
-        public Shop SelectedShop
+        public ShopViewModel SelectedShop
         {
             get => _selectedShop;
-            set
-            {
-                SetValue(ref _selectedShop, value);
-            }
+            set => SetValue(ref _selectedShop, value);
         }
 
         public ShopAssistant SelectedShopAssistant
@@ -50,7 +50,7 @@ namespace TRPO_labe_6_WPF.ViewModel
             set => SetValue(ref _selectedShopAssistant, value);
         }
 
-        public Product SelectedProduct
+        public ProductViewModel SelectedProduct
         {
             get => _selectedProduct;
             set => SetValue(ref _selectedProduct, value);
@@ -73,11 +73,7 @@ namespace TRPO_labe_6_WPF.ViewModel
         {
             ShopsSerializer serializer = new ShopsSerializer($"{Directory.GetCurrentDirectory()}//Files//shops.json");
             var observableShopsList = Shops.ToList();
-            var shopsList = new List<Shop>();
-            foreach (var shop in observableShopsList)
-            {
-                shopsList.Add(shop.InnerShopInstance);
-            }
+            var shopsList = observableShopsList.Select(shop => shop.InnerShopInstance).ToList();
             serializer.RewriteAll(shopsList);
         }
 
@@ -96,34 +92,59 @@ namespace TRPO_labe_6_WPF.ViewModel
         private void OnAddShopAssistantExecuted()
         {
             var shopAssistant = new ShopAssistant() { Age = 18, HiringDate = DateTime.Now, Name = "Assistant" };
-            ShopAssistants.Add(shopAssistant);
-        }
-
-        private void ShopAssistants_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            SelectedShop.Assistants = ShopAssistants.ToList();
+            SelectedShop.ShopAssistants.Add(shopAssistant);
         }
 
         private bool CanAddShopAssistantExecute() => SelectedShop != null;
 
         private void OnFireShopAssistantExecuted()
         {
-            ShopAssistants.Remove(SelectedShopAssistant);
+            SelectedShop.ShopAssistants.Remove(SelectedShopAssistant);
+        }
+
+        private bool CanAddProductExecute() => SelectedShop != null;
+
+        private void OnAddProductExecuted()
+        {
+            SelectedShop.Products.Add(new ProductViewModel(new Product("Product", 0)));
+        }
+
+        private bool CanRemoveProductExecute() => SelectedProduct != null;
+
+        private void OnRemoveProductExecuted()
+        {
+            SelectedShop.Products.Remove(_selectedProduct);
         }
 
         private bool CanFireShopAssistantExecute() => SelectedShopAssistant != null;
 
+        private void OnIncrementProductCount(ProductViewModel product)
+        {
+            product.Count = product.Count + 1;
+        }
+
+        private void OnDecrementProductCount(ProductViewModel product)
+        {
+            product.Count = product.Count - 1;
+            if (product.Count == 0)
+            {
+                OnRemoveProductExecuted();
+            }
+        }
+
         public ShopsWindowViewModel()
         {
-            Shops = new ObservableCollection<Shop>();
-            ShopAssistants = new ObservableCollection<ShopAssistant>();
-            ShopAssistants.CollectionChanged += ShopAssistants_CollectionChanged;
+            Shops = new ObservableCollection<ShopViewModel>();
             LoadShopsCommand = new RelayCommand(OnLoadShopsExecuted);
             SaveShopsCommand = new RelayCommand(OnSaveShopsExecuted);
             AddShopCommand = new RelayCommand(OnAddShopExecuted);
             RemoveShopCommand = new RelayCommand(OnRemoveShopExecuted, CanRemoveShopExecute);
             AddAssistantCommand = new RelayCommand(OnAddShopAssistantExecuted, CanAddShopAssistantExecute);
             FireAssistantCommand = new RelayCommand(OnFireShopAssistantExecuted, CanFireShopAssistantExecute);
+            AddProductCommand = new RelayCommand(OnAddProductExecuted, CanAddProductExecute);
+            RemoveProductCommand = new RelayCommand(OnRemoveProductExecuted, CanRemoveProductExecute);
+            IncrementProductCountCommand = new RelayCommand<ProductViewModel>(OnIncrementProductCount);
+            DecrementProductCountCommand = new RelayCommand<ProductViewModel>(OnDecrementProductCount);
         }
     }
 }

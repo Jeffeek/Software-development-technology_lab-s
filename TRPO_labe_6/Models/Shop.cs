@@ -13,7 +13,7 @@ namespace TRPO_labe_6.Models
         [DataMember]
         public List<ShopAssistant> Assistants { get; set; }
         [DataMember]
-        public List<ValueTuple<Product, int>> Products { get; set; }
+        public List<Product> Products { get; set; }
 
         public override string ToString()
         {
@@ -24,36 +24,36 @@ namespace TRPO_labe_6.Models
         {
             Name = name;
             Assistants = new List<ShopAssistant>();
-            Products = new List<(Product, int)>();
+            Products = new List<Product>();
         }
 
         public Shop()
         {
             Assistants = new List<ShopAssistant>();
-            Products = new List<(Product, int)>();
+            Products = new List<Product>();
         }
 
         public void AddProduct(Product product)
         {
-            var itemProduct = Products.SingleOrDefault(x => x.Item1.Equals(product));
-            if (itemProduct.Item1 == null)
-                Products.Add((product, 1));
+            var itemProduct = Products.SingleOrDefault(x => x.Equals(product));
+            if (itemProduct == null)
+                Products.Add(product);
             else
-                itemProduct.Item2++;
+                itemProduct.Count++;
         }
 
         public bool SellProduct(ShopAssistant assistant, Product product)
         {
             var assist = Assistants.SingleOrDefault(x => x.Equals(assistant));
-            var itemProduct = Products.SingleOrDefault(x => x.Item1.Equals(product));
+            var itemProduct = Products.SingleOrDefault(x => x.Equals(product));
             if (assist == null)
                 return false;
-            if (itemProduct.Item1 == null)
+            if (itemProduct == null)
                 return false;
-            if (itemProduct.Item2 == 0)
+            if (itemProduct.Count == 0)
                 return false;
-            assistant.SellProduct(itemProduct.Item1);
-            itemProduct.Item2--;
+            assistant.SellProduct(itemProduct);
+            itemProduct.Count--;
             return true;
         }
 

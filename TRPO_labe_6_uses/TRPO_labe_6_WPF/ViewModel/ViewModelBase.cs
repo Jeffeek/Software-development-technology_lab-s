@@ -4,10 +4,9 @@ using System.Runtime.CompilerServices;
 
 namespace TRPO_labe_6_WPF.ViewModel
 {
-    public abstract class ViewModelBase : INotifyPropertyChanged, IDisposable
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private bool _disposed;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -20,18 +19,6 @@ namespace TRPO_labe_6_WPF.ViewModel
             field = value;
             OnPropertyChanged(propertyName);
             return true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposing || _disposed) return;
-            _disposed = true;
-            GC.SuppressFinalize(this);
         }
     }
 }

@@ -44,11 +44,23 @@
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Julmar.Core, Version=4.2.3.14815, Culture=neutral, PublicKeyToken=3ea22013129d8c94, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MVVMHelpers.2012.4.20.03\lib\4.5\Julmar.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Julmar.Wpf.Behaviors, Version=4.2.3.14815, Culture=neutral, PublicKeyToken=3ea22013129d8c94, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MVVMHelpers.2012.4.20.03\lib\4.5\Julmar.Wpf.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="JulMar.Wpf.Helpers, Version=4.2.3.14815, Culture=neutral, PublicKeyToken=3ea22013129d8c94, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MVVMHelpers.2012.4.20.03\lib\4.5\JulMar.Wpf.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MVVMHelpers.2012.4.20.03\lib\4.5\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\..\packages\MVVMHelpers.2012.4.20.03\lib\4.5\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +70,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TRPO_labe_6, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\TRPO_labe_6\bin\Debug\TRPO_labe_6.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -71,7 +87,8 @@
     <Compile Include="Converters\ValueTupleConverterT1.cs" />
     <Compile Include="Model\ShopsDeserializer.cs" />
     <Compile Include="Model\ShopsSerializer.cs" />
-    <Compile Include="Model\ShopViewModel.cs" />
+    <Compile Include="ViewModel\ProductViewModel.cs" />
+    <Compile Include="ViewModel\ShopViewModel.cs" />
     <Compile Include="View\ShopsWindow.xaml.cs">
       <DependentUpon>ShopsWindow.xaml</DependentUpon>
     </Compile>
@@ -123,12 +140,6 @@
     <Resource Include="Files\save_26px.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\TRPO_labe_6\TRPO_labe_6.csproj">
-      <Project>{5ab58175-a291-4a6c-97fe-d7cc202c41d1}</Project>
-      <Name>TRPO_labe_6</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

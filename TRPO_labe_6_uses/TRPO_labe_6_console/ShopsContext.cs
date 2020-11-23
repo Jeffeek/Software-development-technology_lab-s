@@ -156,10 +156,10 @@ namespace TRPO_labe_6_console
             }
             Console.WriteLine("Список продуктов: ");
             for (int i = 0; i < shop.Products.Count; i++)
-                Console.WriteLine($"{i} : {shop.Products.ElementAt(i).Item1}");
+                Console.WriteLine($"{i} : {shop.Products.ElementAt(i)}");
             int index = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
             if (index < 0 || index >= shop.Products.Count) throw new IndexOutOfRangeException();
-            return shop.Products.ElementAt(index).Item1;
+            return shop.Products.ElementAt(index);
         }
 
         private bool GetBoolAnswer(string text, Func<int, bool> func)

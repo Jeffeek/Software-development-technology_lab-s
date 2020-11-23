@@ -46,7 +46,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="TRPO_labe_6">
+    <Reference Include="TRPO_labe_6, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\TRPO_labe_6\bin\Debug\TRPO_labe_6.dll</HintPath>
     </Reference>
   </ItemGroup>

@@ -1,9 +1,9 @@
 ﻿<Window
-    x:Class="TRPO_labe_6_WPF.MainWindow"
+    x:Class="TRPO_labe_6_WPF.View.ShopsWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:TRPO_labe_6_WPF"
+    xmlns:local="clr-namespace:TRPO_labe_6_WPF.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:TRPO_labe_6_WPF.ViewModel"
     xmlns:converters="clr-namespace:TRPO_labe_6_WPF.Converters"
@@ -52,49 +52,100 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <TextBlock Text="Shops" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+        <TextBlock 
+            Text="Shops" 
+            Grid.Column="0" 
+            Grid.Row="1" 
+            HorizontalAlignment="Center"/>
         <TextBlock Text="Assistants" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
         <TextBlock Text="Products" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center"/>
-        <ListView ItemsSource="{Binding Shops}" Grid.Column="0" Grid.Row="2" SelectedItem="{Binding SelectedShop, Mode=TwoWay}">
+        <ListView 
+            ItemsSource="{Binding Shops}" 
+            Grid.Column="0" 
+            Grid.Row="2" 
+            SelectedItem="{Binding SelectedShop, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Name}"></TextBlock>
+                        <TextBlock 
+                            Text="{Binding InnerShopInstance.Name}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView ItemsSource="{Binding ShopAssistants}" Grid.Column="1" Grid.Row="2" SelectedItem="{Binding SelectedShopAssistant, Mode=TwoWay}">
+        <ListView 
+            ItemsSource="{Binding SelectedShop.ShopAssistants}" 
+            Grid.Column="1" 
+            Grid.Row="2" 
+            SelectedItem="{Binding SelectedShopAssistant, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Name}"/>
-                        <TextBlock Text="{Binding Age}"/>
-                        <TextBlock Text="{Binding HiringDate, StringFormat='dd.mm.yy'}"/>
+                        <TextBlock 
+                            Text="{Binding Name}"/>
+                        <TextBlock 
+                            Text="{Binding Age}"/>
+                        <TextBlock 
+                            Text="{Binding HiringDate, StringFormat='dd.mm.yy'}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView ItemsSource="{Binding SelectedShop.Products}" Grid.Column="2" Grid.Row="2" SelectedItem="{Binding SelectedProduct, Mode=TwoWay}">
+        <ListView 
+            ItemsSource="{Binding SelectedShop.Products}" 
+            Grid.Column="2" 
+            Grid.Row="2" 
+            SelectedItem="{Binding SelectedProduct}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                            <TextBlock Text="Product"/>
+                            <TextBlock 
+                                Text="{Binding InnerProductInstance.Name}"/>
+                            <TextBlock 
+                                Text="{Binding InnerProductInstance.Price}"/>
+                            <TextBlock 
+                                Text="{Binding InnerProductInstance.Count}"/>
+                            <Button 
+                                Content="+" 
+                                CommandParameter="{Binding}" 
+                                Command="{Binding DataContext.IncrementProductCountCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"/>
+                            <Button 
+                                Content="-" 
+                                CommandParameter="{Binding}" 
+                                Command="{Binding DataContext.DecrementProductCountCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Grid.Column="0" Grid.Row="3">
-            <Button Content="Add" Command="{Binding AddShopCommand}"/>
-            <Button Content="Remove" Command="{Binding RemoveShopCommand}"/>
+        <StackPanel 
+            Grid.Column="0" 
+            Grid.Row="3">
+            <Button 
+                Content="Add" 
+                Command="{Binding AddShopCommand}"/>
+            <Button 
+                Content="Remove" 
+                Command="{Binding RemoveShopCommand}"/>
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="3">
-            <Button Content="Add" Command="{Binding AddAssistantCommand}"/>
-            <Button Content="Fire" Command="{Binding FireAssistantCommand}"/>
+        <StackPanel 
+            Grid.Column="1" 
+            Grid.Row="3">
+            <Button 
+                Content="Add" 
+                Command="{Binding AddAssistantCommand}"/>
+            <Button 
+                Content="Fire" 
+                Command="{Binding FireAssistantCommand}"/>
         </StackPanel>
-        <StackPanel Grid.Column="2" Grid.Row="3">
-            <Button Content="Add"/>
-            <Button Content="Sell"/>
+        <StackPanel 
+            Grid.Column="2" 
+            Grid.Row="3">
+            <Button 
+                Content="Add" 
+                Command="{Binding AddProductCommand}"/>
+            <Button 
+                Content="Remove" 
+                Command="{Binding RemoveProductCommand}"/>
         </StackPanel>
     </Grid>
 </Window>

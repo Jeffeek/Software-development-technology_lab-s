@@ -21,11 +21,14 @@ namespace TRPO_labe_6.Models
         public string Name { get; set; }
         [DataMember]
         public int Price { get; set; }
+        [DataMember]
+        public int Count { get; set; }
 
         public Product(string name, int price)
         {
             Price = price;
             Name = name;
+            Count = 1;
         }
 
         public bool Equals(Product other)
