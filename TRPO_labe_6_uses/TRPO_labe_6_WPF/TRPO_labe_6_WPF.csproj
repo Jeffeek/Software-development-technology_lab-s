@@ -87,6 +87,8 @@
     <Compile Include="Converters\ValueTupleConverterT1.cs" />
     <Compile Include="Model\ShopsDeserializer.cs" />
     <Compile Include="Model\ShopsSerializer.cs" />
+    <Compile Include="ViewModel\ProductViewModel.cs" />
+    <Compile Include="ViewModel\ShopAssistantViewModel.cs" />
     <Compile Include="ViewModel\ShopViewModel.cs" />
     <Compile Include="View\ShopsWindow.xaml.cs">
       <DependentUpon>ShopsWindow.xaml</DependentUpon>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace TRPO_labe_6.Models
@@ -38,14 +39,18 @@ namespace TRPO_labe_6.Models
 
         public void SellProduct(Product product)
         {
-            SelledProducts.Add(product);
+            var innerProduct = SelledProducts.SingleOrDefault(x => x.Equals(product));
+            if (innerProduct == null)
+                SelledProducts.Add(new Product(product.Name, product.Price) {Count = 1});
+            else
+                innerProduct.Count++;
         }
 
         public double CalculateSalary()
         {
             if (SelledProducts.Count == 0)
                 return DefaultSalary;
-            return DefaultSalary + (SelledProducts.Count / 0.1);
+            return DefaultSalary + (SelledProducts.Sum(x => x.Count) / 0.1);
         }
 
         public bool Equals(ShopAssistant other)

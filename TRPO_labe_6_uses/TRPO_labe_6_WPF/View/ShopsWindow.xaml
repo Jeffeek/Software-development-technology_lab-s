@@ -9,7 +9,8 @@
     xmlns:converters="clr-namespace:TRPO_labe_6_WPF.Converters"
     Title="MainWindow"
     Width="800"
-    Height="450"
+    Height="500"
+    ResizeMode="NoResize"
     mc:Ignorable="d">
     <Window.DataContext>
         <vm:ShopsWindowViewModel />
@@ -26,7 +27,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Menu>
+        <Menu Foreground="White" Grid.Column="0" Grid.Row="0">
             <MenuItem Background="LightSlateGray" Header="File">
                 <MenuItem Background="LightSlateGray" Command="{Binding LoadShopsCommand}">
                     <MenuItem.Header>
@@ -51,6 +52,10 @@
                     </MenuItem.Header>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="Analyze" Background="LightSlateGray">
+                <MenuItem Header="Determine the cost of all purchases" Background="LightSlateGray" Command="{Binding DetermineTheCostOfAllPurchases}"/>
+                <MenuItem Header="Calculate for selected assistant" Background="LightSlateGray" Command="{Binding DetermineSalaryForSelectedAssistant}"/>
+            </MenuItem>
         </Menu>
         <TextBlock 
             Text="Shops" 
@@ -68,7 +73,9 @@
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock 
-                            Text="{Binding InnerShopInstance.Name}"/>
+                            Text="Name: "/>
+                        <TextBox 
+                            Text="{Binding InnerShopInstance.Name, Mode=TwoWay}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -76,17 +83,24 @@
         <ListView 
             ItemsSource="{Binding SelectedShop.ShopAssistants}" 
             Grid.Column="1" 
-            Grid.Row="2" 
-            SelectedItem="{Binding SelectedShopAssistant, Mode=TwoWay}">
+            Grid.Row="2"
+            Name="AssistantsList"
+            SelectedItem="{Binding SelectedShopAssistant}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock 
-                            Text="{Binding Name}"/>
+                            Text="Name:"/>
+                        <TextBox
+                            Text="{Binding InnerShopAssistant.Name, Mode=TwoWay}"/>
                         <TextBlock 
-                            Text="{Binding Age}"/>
+                            Text="Age"/>
+                        <TextBox
+                            Text="{Binding InnerShopAssistant.Age, Mode=TwoWay}"/>
                         <TextBlock 
-                            Text="{Binding HiringDate, StringFormat='dd.mm.yy'}"/>
+                            Text="HiringDate"/>
+                        <TextBox
+                            Text="{Binding InnerShopAssistant.HiringDate, StringFormat='dd.mm.yy', Mode=TwoWay}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -98,13 +112,29 @@
             SelectedItem="{Binding SelectedProduct}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                            <TextBox 
-                                Text="{Binding Name}"/>
-                            <TextBox 
-                                Text="{Binding Price}"/>
-                            <TextBox 
-                                Text="{Binding Count}"/>
+                    <StackPanel 
+                        HorizontalAlignment="Center" 
+                        Name="ProdStackPanel">
+                        <TextBlock 
+                            Text="Name: "/>
+                        <TextBox 
+                                Text="{Binding InnerProductInstance.Name}"
+                                HorizontalAlignment="Center"/>
+                        <TextBlock 
+                            Text="Price: "/>
+                        <TextBox 
+                                Text="{Binding InnerProductInstance.Price}"
+                                HorizontalAlignment="Center"/>
+                        <TextBlock 
+                            Text="Count: "/>
+                        <TextBlock
+                                Text="{Binding Count}"
+                                HorizontalAlignment="Center"/>
+                        <Button Content="Place one more" Command="{Binding IncrementProductCountCommand}"/>
+                        <Button 
+                            Content="Sell" 
+                            Command="{Binding DecrementProductCountCommand}" 
+                            CommandParameter="{Binding ElementName=AssistantsList, Path=SelectedItem}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
