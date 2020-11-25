@@ -26,3 +26,4 @@ E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6\obj\Debug
 E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6\obj\Debug\TRPO_labe_6.dll
 E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6\obj\Debug\TRPO_labe_6.pdb
 E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6\obj\Debug\TRPO_labe_6.csprojAssemblyReference.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6\obj\Debug\TRPO_labe_6.csprojAssemblyReference.cache

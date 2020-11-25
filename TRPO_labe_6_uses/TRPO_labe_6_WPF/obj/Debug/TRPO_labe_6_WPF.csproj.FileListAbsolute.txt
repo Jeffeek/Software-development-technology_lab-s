@@ -52,7 +52,6 @@ C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin
 C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\GalaSoft.MvvmLight.Extras.dll
 C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\GalaSoft.MvvmLight.Platform.dll
 C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\CommonServiceLocator.dll
 C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\GalaSoft.MvvmLight.pdb
 C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\GalaSoft.MvvmLight.xml
 C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
@@ -107,3 +106,15 @@ E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6_uses\TRPO
 E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\JulMar.Wpf.Helpers.xml
 E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\Microsoft.Expression.Interactions.xml
 E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\Julmar.Core.dll
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\Julmar.Wpf.Behaviors.dll
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\JulMar.Wpf.Helpers.dll
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\Julmar.Core.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\Julmar.Core.xml
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\Julmar.Wpf.Behaviors.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\Julmar.Wpf.Behaviors.xml
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\JulMar.Wpf.Helpers.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\JulMar.Wpf.Helpers.xml
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_6_uses\TRPO_labe_6_WPF\bin\Debug\System.Windows.Interactivity.xml

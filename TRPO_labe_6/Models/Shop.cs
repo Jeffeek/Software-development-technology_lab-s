@@ -57,6 +57,6 @@ namespace TRPO_labe_6.Models
             return true;
         }
 
-        public int CalculateOverall() => Assistants.Sum(x => x.SelledProducts.Sum(y => y.Price));
+        public int CalculateOverall() => Assistants.Sum(x => x.SelledProducts.Sum(y => y.Price * y.Count));
     }
 }

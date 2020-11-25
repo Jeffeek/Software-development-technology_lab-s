@@ -54,7 +54,7 @@
             </MenuItem>
             <MenuItem Header="Analyze" Background="LightSlateGray">
                 <MenuItem Header="Determine the cost of all purchases" Background="LightSlateGray" Command="{Binding DetermineTheCostOfAllPurchases}"/>
-                <MenuItem Header="Calculate for selected assistant" Background="LightSlateGray" Command="{Binding DetermineSalaryForSelectedAssistant}"/>
+                <MenuItem Header="Calculate salary for selected assistant" Background="LightSlateGray" Command="{Binding DetermineSalaryForSelectedAssistant}"/>
             </MenuItem>
         </Menu>
         <TextBlock 
