@@ -19,7 +19,6 @@ E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6_uses\TRPO
 E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6_uses\TRPO_labe_6_console\bin\Debug\Newtonsoft.Json.xml
 E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6_uses\TRPO_labe_6_console\bin\Debug\TRPO_labe_6.pdb
 E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6_uses\TRPO_labe_6_console\bin\Debug\TRPO_labe_6.dll.config
-E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6_uses\TRPO_labe_6_console\obj\Debug\TRPO_labe_6_console.csprojAssemblyReference.cache
 E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6_uses\TRPO_labe_6_console\obj\Debug\TRPO_labe_6_console.csproj.CoreCompileInputs.cache
 E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6_uses\TRPO_labe_6_console\obj\Debug\TRPO_labe_6_console.csproj.CopyComplete
 E:\projectsVS\GitHub\Software-development-technology_lab-s\TRPO_labe_6_uses\TRPO_labe_6_console\obj\Debug\TRPO_labe_6_console.exe

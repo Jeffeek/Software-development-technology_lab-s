@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Json;
-using System.Xml.Serialization;
 using TRPO_labe_6.Models;
 
 namespace TRPO_labe_6_WPF.Model

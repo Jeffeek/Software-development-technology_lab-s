@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
 using TRPO_labe_6.Models;
+using TRPO_labe_6.Models.FileWorkers;
 using TRPO_labe_6_WPF.Model;
 
 namespace TRPO_labe_6_WPF.ViewModel
@@ -59,22 +60,19 @@ namespace TRPO_labe_6_WPF.ViewModel
 
         private void OnLoadShopsExecuted()
         {
-            ShopsDeserializer deserializer = new ShopsDeserializer($"{Directory.GetCurrentDirectory()}//Files//shops.json");
-            var shopsList = deserializer.GetAll();
+            JsonFileDeserializer<List<Shop>> deserializer = new JsonFileDeserializer<List<Shop>>($"{Directory.GetCurrentDirectory()}//Files//shops.json");
+            var shopsList = deserializer.Read();
             var observableShopsList = new ObservableCollection<ShopViewModel>();
             foreach (var shop in shopsList)
-            {
                 observableShopsList.Add(new ShopViewModel(shop));
-            }
-
             Shops = observableShopsList;
         }
 
         private void OnSaveShopsExecuted()
         {
-            ShopsSerializer serializer = new ShopsSerializer($"{Directory.GetCurrentDirectory()}//Files//shops.json");
             var shopsList = Shops.Select(shop => shop.InnerShopInstance).ToList();
-            serializer.RewriteAll(shopsList);
+            JsonFileSerializer<List<Shop>> serializer = new JsonFileSerializer<List<Shop>>($"{Directory.GetCurrentDirectory()}//Files//shops.json");
+            serializer.Rewrite(shopsList);
         }
 
         private void OnAddShopExecuted()

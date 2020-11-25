@@ -58,8 +58,6 @@
     <Compile Include="ShopAssistantBuilder.cs" />
     <Compile Include="ShopBuilder.cs" />
     <Compile Include="ShopsContext.cs" />
-    <Compile Include="ShopsDeserializer.cs" />
-    <Compile Include="ShopsSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

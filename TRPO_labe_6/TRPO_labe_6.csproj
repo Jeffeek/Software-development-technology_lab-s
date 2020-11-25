@@ -56,6 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\FileWorkers\JsonFile.cs" />
+    <Compile Include="Models\FileWorkers\JsonFileDeserializer.cs" />
+    <Compile Include="Models\FileWorkers\JsonFileSerializer.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\ShopAssistant.cs" />
@@ -66,5 +69,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

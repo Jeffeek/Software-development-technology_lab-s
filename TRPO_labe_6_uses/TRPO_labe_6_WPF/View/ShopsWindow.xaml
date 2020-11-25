@@ -27,7 +27,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Menu Foreground="White" Grid.Column="0" Grid.Row="0">
+        <Menu Foreground="White" Grid.Column="0" Grid.ColumnSpan="3">
             <MenuItem Background="LightSlateGray" Header="File">
                 <MenuItem Background="LightSlateGray" Command="{Binding LoadShopsCommand}">
                     <MenuItem.Header>

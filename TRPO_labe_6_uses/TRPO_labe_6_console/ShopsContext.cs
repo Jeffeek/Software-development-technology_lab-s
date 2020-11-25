@@ -6,16 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TRPO_labe_6.Models;
+using TRPO_labe_6.Models.FileWorkers;
 
 namespace TRPO_labe_6_console
 {
     public class ShopsContext
     {
-        private List<Shop> Shops;
+        private List<Shop> Shops { get; }
 
         public ShopsContext()
         {
-            Shops = GetBoolAnswer("Десериализовать ли магазины из файла? \n1. Да\n2. Нет", x => x == 1) ? new ShopsDeserializer($"{Directory.GetCurrentDirectory()}//shops.json").GetAll() : new List<Shop>();
+            Shops = GetBoolAnswer("Десериализовать ли магазины из файла? \n1. Да\n2. Нет", 
+                x => x == 1) ? new JsonFileDeserializer<List<Shop>>($"{Directory.GetCurrentDirectory()}//shops.json")
+                .Read() : new List<Shop>();
             StartContext();
         }
 
@@ -41,8 +44,8 @@ namespace TRPO_labe_6_console
 
                         case 2:
                         {
-                            var serializer = new ShopsSerializer($"{Directory.GetCurrentDirectory()}//shops.json");
-                            serializer.RewriteAll(Shops);
+                            var serializer = new JsonFileSerializer<List<Shop>>($"{Directory.GetCurrentDirectory()}//shops.json");
+                            serializer.Rewrite(Shops);
                             break;
                         }
 
