@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.CommandWpf;
 using TRPO_labe_6.Models;
 
 namespace TRPO_labe_6_WPF.ViewModel
@@ -11,6 +9,9 @@ namespace TRPO_labe_6_WPF.ViewModel
     {
         private Product _innerProduct;
         private int _count;
+
+        public ICommand IncrementProductCountCommand { get; }
+        public ICommand DecrementProductCountCommand { get; }
 
         public Product InnerProductInstance
         {
@@ -28,11 +29,27 @@ namespace TRPO_labe_6_WPF.ViewModel
             }
         }
 
+        private void OnIncrementProductCount()
+        {
+            Count += 1;
+        }
+
+        private bool CanDecrementProductCount(ShopAssistantViewModel shopAssistant) => Count > 0;
+
+        private void OnDecrementProductCount(ShopAssistantViewModel shopAssistant)
+        {
+            if (Count == 0) return;
+            if (shopAssistant == null) return;
+            shopAssistant.InnerShopAssistant.SellProduct(InnerProductInstance);
+            Count -= 1;
+        }
 
         public ProductViewModel(Product product)
         {
             InnerProductInstance = product;
             Count = product.Count;
+            IncrementProductCountCommand = new RelayCommand(OnIncrementProductCount);
+            DecrementProductCountCommand = new RelayCommand<ShopAssistantViewModel>(OnDecrementProductCount, CanDecrementProductCount);
         }
     }
 }

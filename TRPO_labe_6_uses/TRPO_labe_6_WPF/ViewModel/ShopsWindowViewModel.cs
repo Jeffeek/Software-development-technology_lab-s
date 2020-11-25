@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
 using TRPO_labe_6.Models;
@@ -12,7 +13,7 @@ namespace TRPO_labe_6_WPF.ViewModel
 {
     public class ShopsWindowViewModel : ViewModelBase //TODO: V3073 https://www.viva64.com/en/w/v3073/ Not all IDisposable members are properly disposed. Call 'Dispose' when disposing 'ShopsWindowViewModel' class. Inspect: _selectedProduct, _selectedShop.
     {
-        private ShopAssistant _selectedShopAssistant;
+        private ShopAssistantViewModel _selectedShopAssistant;
         private ProductViewModel _selectedProduct;
         private ShopViewModel _selectedShop;
         private ObservableCollection<ShopViewModel> _shops;
@@ -28,9 +29,9 @@ namespace TRPO_labe_6_WPF.ViewModel
 
         public ICommand AddProductCommand { get; }
         public ICommand RemoveProductCommand { get; }
-        public ICommand IncrementProductCountCommand { get; }
-        public ICommand DecrementProductCountCommand { get; }
 
+        public ICommand DetermineTheCostOfAllPurchases { get; }
+        public ICommand DetermineSalaryForSelectedAssistant{ get; }
 
         public ObservableCollection<ShopViewModel> Shops
         {
@@ -44,7 +45,7 @@ namespace TRPO_labe_6_WPF.ViewModel
             set => SetValue(ref _selectedShop, value);
         }
 
-        public ShopAssistant SelectedShopAssistant
+        public ShopAssistantViewModel SelectedShopAssistant
         {
             get => _selectedShopAssistant;
             set => SetValue(ref _selectedShopAssistant, value);
@@ -72,8 +73,7 @@ namespace TRPO_labe_6_WPF.ViewModel
         private void OnSaveShopsExecuted()
         {
             ShopsSerializer serializer = new ShopsSerializer($"{Directory.GetCurrentDirectory()}//Files//shops.json");
-            var observableShopsList = Shops.ToList();
-            var shopsList = observableShopsList.Select(shop => shop.InnerShopInstance).ToList();
+            var shopsList = Shops.Select(shop => shop.InnerShopInstance).ToList();
             serializer.RewriteAll(shopsList);
         }
 
@@ -92,7 +92,8 @@ namespace TRPO_labe_6_WPF.ViewModel
         private void OnAddShopAssistantExecuted()
         {
             var shopAssistant = new ShopAssistant() { Age = 18, HiringDate = DateTime.Now, Name = "Assistant" };
-            SelectedShop.ShopAssistants.Add(shopAssistant);
+            var observableShopAssistant = new ShopAssistantViewModel(shopAssistant);
+            SelectedShop.ShopAssistants.Add(observableShopAssistant);
         }
 
         private bool CanAddShopAssistantExecute() => SelectedShop != null;
@@ -106,7 +107,9 @@ namespace TRPO_labe_6_WPF.ViewModel
 
         private void OnAddProductExecuted()
         {
-            SelectedShop.Products.Add(new ProductViewModel(new Product("Product", 0)));
+            var product = new Product("Product", 0);
+            var observableProduct = new ProductViewModel(product);
+            SelectedShop.Products.Add(observableProduct);
         }
 
         private bool CanRemoveProductExecute() => SelectedProduct != null;
@@ -118,18 +121,20 @@ namespace TRPO_labe_6_WPF.ViewModel
 
         private bool CanFireShopAssistantExecute() => SelectedShopAssistant != null;
 
-        private void OnIncrementProductCount(ProductViewModel product)
+        private bool CanDetermineTheCostOfAllPurchases() => SelectedShop != null;
+
+        private void OnDetermineTheCostOfAllPurchases()
         {
-            product.Count = product.Count + 1;
+            var cost = SelectedShop.InnerShopInstance.CalculateOverall();
+            MessageBox.Show($"${cost}");
         }
 
-        private void OnDecrementProductCount(ProductViewModel product)
+        private bool CanDetermineSalaryForSelectedAssistant() => SelectedShopAssistant != null;
+
+        private void OnDetermineSalaryForSelectedAssistant()
         {
-            product.Count = product.Count - 1;
-            if (product.Count == 0)
-            {
-                OnRemoveProductExecuted();
-            }
+            var salary = SelectedShopAssistant.InnerShopAssistant.CalculateSalary();
+            MessageBox.Show($"${salary}");
         }
 
         public ShopsWindowViewModel()
@@ -143,8 +148,8 @@ namespace TRPO_labe_6_WPF.ViewModel
             FireAssistantCommand = new RelayCommand(OnFireShopAssistantExecuted, CanFireShopAssistantExecute);
             AddProductCommand = new RelayCommand(OnAddProductExecuted, CanAddProductExecute);
             RemoveProductCommand = new RelayCommand(OnRemoveProductExecuted, CanRemoveProductExecute);
-            IncrementProductCountCommand = new RelayCommand<ProductViewModel>(OnIncrementProductCount);
-            DecrementProductCountCommand = new RelayCommand<ProductViewModel>(OnDecrementProductCount);
+            DetermineTheCostOfAllPurchases = new RelayCommand(OnDetermineTheCostOfAllPurchases, CanDetermineTheCostOfAllPurchases);
+            DetermineSalaryForSelectedAssistant = new RelayCommand(OnDetermineSalaryForSelectedAssistant, CanDetermineSalaryForSelectedAssistant);
         }
     }
 }
