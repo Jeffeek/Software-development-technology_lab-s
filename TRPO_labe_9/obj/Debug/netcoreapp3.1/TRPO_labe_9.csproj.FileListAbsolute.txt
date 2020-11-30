@@ -1,0 +1,12 @@
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_9\bin\Debug\netcoreapp3.1\TRPO_labe_9.exe
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_9\bin\Debug\netcoreapp3.1\TRPO_labe_9.deps.json
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_9\bin\Debug\netcoreapp3.1\TRPO_labe_9.runtimeconfig.json
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_9\bin\Debug\netcoreapp3.1\TRPO_labe_9.runtimeconfig.dev.json
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_9\bin\Debug\netcoreapp3.1\TRPO_labe_9.dll
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_9\bin\Debug\netcoreapp3.1\TRPO_labe_9.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_9\obj\Debug\netcoreapp3.1\TRPO_labe_9.AssemblyInfoInputs.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_9\obj\Debug\netcoreapp3.1\TRPO_labe_9.AssemblyInfo.cs
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_9\obj\Debug\netcoreapp3.1\TRPO_labe_9.csproj.CoreCompileInputs.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_9\obj\Debug\netcoreapp3.1\TRPO_labe_9.dll
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_9\obj\Debug\netcoreapp3.1\TRPO_labe_9.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_labe_9\obj\Debug\netcoreapp3.1\TRPO_labe_9.genruntimeconfig.cache

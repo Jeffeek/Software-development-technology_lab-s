@@ -1,0 +1,8 @@
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_7_LevenshteinDistance\obj\Debug\netcoreapp3.1\TRPO_7_LevenshteinDistance.AssemblyInfoInputs.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_7_LevenshteinDistance\obj\Debug\netcoreapp3.1\TRPO_7_LevenshteinDistance.AssemblyInfo.cs
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_7_LevenshteinDistance\obj\Debug\netcoreapp3.1\TRPO_7_LevenshteinDistance.csproj.CoreCompileInputs.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_7_LevenshteinDistance\bin\Debug\netcoreapp3.1\TRPO_7_LevenshteinDistance.deps.json
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_7_LevenshteinDistance\bin\Debug\netcoreapp3.1\TRPO_7_LevenshteinDistance.dll
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_7_LevenshteinDistance\bin\Debug\netcoreapp3.1\TRPO_7_LevenshteinDistance.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_7_LevenshteinDistance\obj\Debug\netcoreapp3.1\TRPO_7_LevenshteinDistance.dll
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_7_LevenshteinDistance\obj\Debug\netcoreapp3.1\TRPO_7_LevenshteinDistance.pdb

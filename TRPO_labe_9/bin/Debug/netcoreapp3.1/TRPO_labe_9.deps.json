@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "TRPO_labe_9/1.0.0": {
+        "runtime": {
+          "TRPO_labe_9.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TRPO_labe_9/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
