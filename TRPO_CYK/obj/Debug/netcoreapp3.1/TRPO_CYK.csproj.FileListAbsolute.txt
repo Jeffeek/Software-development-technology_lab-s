@@ -1,0 +1,13 @@
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_CYK\bin\Debug\netcoreapp3.1\TRPO_CYK.exe
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_CYK\bin\Debug\netcoreapp3.1\TRPO_CYK.deps.json
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_CYK\bin\Debug\netcoreapp3.1\TRPO_CYK.runtimeconfig.json
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_CYK\bin\Debug\netcoreapp3.1\TRPO_CYK.runtimeconfig.dev.json
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_CYK\bin\Debug\netcoreapp3.1\TRPO_CYK.dll
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_CYK\bin\Debug\netcoreapp3.1\TRPO_CYK.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_CYK\obj\Debug\netcoreapp3.1\TRPO_CYK.csprojAssemblyReference.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_CYK\obj\Debug\netcoreapp3.1\TRPO_CYK.AssemblyInfoInputs.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_CYK\obj\Debug\netcoreapp3.1\TRPO_CYK.AssemblyInfo.cs
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_CYK\obj\Debug\netcoreapp3.1\TRPO_CYK.csproj.CoreCompileInputs.cache
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_CYK\obj\Debug\netcoreapp3.1\TRPO_CYK.dll
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_CYK\obj\Debug\netcoreapp3.1\TRPO_CYK.pdb
+C:\Users\misha\Documents\GitHub\TRPO_labe-s\TRPO_CYK\obj\Debug\netcoreapp3.1\TRPO_CYK.genruntimeconfig.cache

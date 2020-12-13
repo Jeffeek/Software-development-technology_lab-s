@@ -1,7 +1,6 @@
 ﻿using System.Windows.Input;
 using TRPO_labe_1.Model;
 using TRPO_labe_1.Model.Command;
-using TRPO_labe_1.Model.FileHelpers;
 using RichTextBox = Xceed.Wpf.Toolkit.RichTextBox;
 
 namespace TRPO_labe_1.ModelView

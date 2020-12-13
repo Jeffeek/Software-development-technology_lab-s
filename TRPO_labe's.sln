@@ -19,13 +19,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRPO_labe_6_console", "TRPO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRPO_labe_6_WPF", "TRPO_labe_6_uses\TRPO_labe_6_WPF\TRPO_labe_6_WPF.csproj", "{22C91EBA-2334-4115-A54C-8C852B8EEFE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRPO_labe_7", "TRPO_labe_7\TRPO_labe_7.csproj", "{06A822F5-DD9E-40FC-89A5-88CCF61BF198}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TRPO_labe_7", "TRPO_labe_7\TRPO_labe_7.csproj", "{06A822F5-DD9E-40FC-89A5-88CCF61BF198}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRPO_7_LevenshteinDistance", "TRPO_7_LevenshteinDistance\TRPO_7_LevenshteinDistance.csproj", "{451C996A-CB59-4120-A265-3B44015A2A42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TRPO_7_LevenshteinDistance", "TRPO_7_LevenshteinDistance\TRPO_7_LevenshteinDistance.csproj", "{451C996A-CB59-4120-A265-3B44015A2A42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRPO_labe_8", "TRPO_labe_8\TRPO_labe_8.csproj", "{DEB80E57-EA70-4825-824F-01B13AE41D4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TRPO_labe_8", "TRPO_labe_8\TRPO_labe_8.csproj", "{DEB80E57-EA70-4825-824F-01B13AE41D4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRPO_labe_9", "TRPO_labe_9\TRPO_labe_9.csproj", "{D5178D29-EE94-4281-981E-4190B4C61B49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TRPO_labe_9", "TRPO_labe_9\TRPO_labe_9.csproj", "{D5178D29-EE94-4281-981E-4190B4C61B49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPRO_labe_10_graphic", "TPRO_labe_10_graphic\TPRO_labe_10_graphic.csproj", "{F6395193-6DE5-4CE8-BDF8-B64D9F39FBB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRPO_CYK", "TRPO_CYK\TRPO_CYK.csproj", "{37B2462D-2F8B-4DB2-AFD9-491C03967B4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +85,14 @@ Global
 		{D5178D29-EE94-4281-981E-4190B4C61B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5178D29-EE94-4281-981E-4190B4C61B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5178D29-EE94-4281-981E-4190B4C61B49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6395193-6DE5-4CE8-BDF8-B64D9F39FBB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6395193-6DE5-4CE8-BDF8-B64D9F39FBB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6395193-6DE5-4CE8-BDF8-B64D9F39FBB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6395193-6DE5-4CE8-BDF8-B64D9F39FBB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37B2462D-2F8B-4DB2-AFD9-491C03967B4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B2462D-2F8B-4DB2-AFD9-491C03967B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B2462D-2F8B-4DB2-AFD9-491C03967B4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B2462D-2F8B-4DB2-AFD9-491C03967B4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
