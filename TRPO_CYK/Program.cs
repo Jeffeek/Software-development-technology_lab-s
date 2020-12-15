@@ -18,14 +18,12 @@ namespace TRPO_CYK
                 new Rule('D', "b"),
                 new Rule('E', "c"),
                 new Rule('F', "AD")
-
             };
             //aaabbb - false
             //aaabbbcc - true
-            var cyk = new CYK("aaabbbcc", rules);
-            cyk.Parse();
-            Console.WriteLine(cyk.ParseResult);
-            Console.WriteLine(cyk.GetResultAsString());
+            var cyk = new CYK(rules);
+            Console.WriteLine(cyk.Parse("aaabbbcc"));
+            Console.WriteLine(cyk);
             Console.ReadLine();
         }
     }

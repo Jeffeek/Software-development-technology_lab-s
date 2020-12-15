@@ -2,28 +2,19 @@
 {
     public class Rule
     {
-        public char RuleSymbol { get; set; }
+        public char CharRule { get; }
         private string _ruleString;
 
-        public Rule(char ruleSymbol, string n)
+        public Rule(char charRule, string ruleString)
         {
-            RuleSymbol = ruleSymbol;
-            _ruleString = n;
+            CharRule = charRule;
+            _ruleString = ruleString;
         }
 
-        public bool Validate(char c)
-        {
-            for (int i = 0; i < _ruleString.Length; i++)
-                if (c == _ruleString[i])
-                    return true;
-            return false;
-        }
+        public bool Check(char ruleChar) => _ruleString.Contains(ruleChar);
 
-        public bool Validate(Rule X, Rule Y)
-        {
-            if (_ruleString[0] == X.RuleSymbol && _ruleString[1] == Y.RuleSymbol)
-                return true;
-            return false;
-        }
+        public bool Check(Rule X, Rule Y) =>
+            _ruleString[0] == X.CharRule &&
+            _ruleString[1] == Y.CharRule;
     }
 }

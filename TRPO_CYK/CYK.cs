@@ -7,31 +7,31 @@ namespace TRPO_CYK
     public class CYK
     {
         public List<Rule> Rules { get; }
-        public string InitialString { get; }
-        public int RulesCount { get; }
         public char StartSymbol { get; }
-        public bool ParseResult { get; private set; }
-        public int InitialLength { get; } 
+        public int InitialStringLength { get; private set; }
+        public int RulesCount { get; }
 
-        private bool[,,] _resultMatrix;
+        private bool _finalResult;
+        private bool[,,] _matrix;
+        private string _initialString;
 
-        public CYK(string initialString, List<Rule> rules, char startSymbol = 'S')
+        public CYK(List<Rule> rules, char startSymbol = 'S')
         {
-            InitialString = initialString;
-            InitialLength = InitialString.Length;
             Rules = rules;
             RulesCount = Rules.Count;
             StartSymbol = startSymbol;
-            _resultMatrix = new bool[InitialLength, InitialLength, RulesCount];
         }
 
-        public void Parse()
+        public bool Parse(string initialString)
         {
+            _initialString = initialString;
+            InitialStringLength = _initialString.Length;
+            _matrix = new bool[InitialStringLength,InitialStringLength,RulesCount];
             InitTable();
 
-            for (int i = 1; i < InitialLength; i++)
+            for (int i = 1; i < InitialStringLength; i++)
             {
-                for (int j = 0; j < InitialLength - i; j++)
+                for (int j = 0; j < InitialStringLength - i; j++)
                 {
                     for (int k = 0; k < i; k++)
                     {
@@ -41,6 +41,7 @@ namespace TRPO_CYK
             }
 
             SetResult();
+            return _finalResult;
         }
 
         private void ParseRules(int j, int k, int i)
@@ -49,43 +50,41 @@ namespace TRPO_CYK
             {
                 for (int y = 0; y < RulesCount; y++)
                 {
-                    if (_resultMatrix[j, k, x] &&
-                        _resultMatrix[j + k + 1, i - k - 1, y])
+                    if (_matrix[j, k, x] &&
+                        _matrix[j + k + 1, i - k - 1, y])
                     {
-                        for (int z = 0; z < RulesCount; z++)
+                        for (int t = 0; t < RulesCount; t++)
                         {
-                            if (Rules[z].Validate(Rules[x], Rules[y]))
-                            {
-                                _resultMatrix[j, i, z] = true;
-                            }
+                            if (Rules[t].Check(Rules[x], Rules[y]))
+                                _matrix[j, i, t] = true;
                         }
                     }
                 }
             }
         }
 
-        public string GetResultAsString()
+        public override string ToString()
         {
             var sb = new StringBuilder();
-            for (int i = InitialLength - 1; i >= 0; i--)
+            for (int i = 0; i < InitialStringLength; i++)
             {
-                for (int j = 0; j < InitialLength; j++)
+                for (int j = 0; j < InitialStringLength; j++)
                 {
                     sb.Append('|');
 
                     for (int z = 0; z < RulesCount; z++)
                     {
-                        if (_resultMatrix[j, i, z])
-                            sb.Append(Rules[z].RuleSymbol);
+                        if (_matrix[j, i, z])
+                            sb.Append(Rules[z].CharRule);
                         else
-                            sb.Append(' ');
+                            sb.Append('.');
                     }
-                    if (j == InitialLength - 1)
+                    if (j == InitialStringLength - 1)
                         sb.Append('|');
                 }
                 sb.AppendLine();
             }
-
+            sb.AppendLine();
             return sb.ToString();
         }
 
@@ -93,25 +92,24 @@ namespace TRPO_CYK
         {
             for (int i = 0; i < RulesCount; i++)
             {
-                if (_resultMatrix[0, InitialLength - 1, i] &&
-                    Rules[i].RuleSymbol == StartSymbol)
+                if (_matrix[0, InitialStringLength - 1, i] &&
+                    Rules[i].CharRule == StartSymbol)
                 {
-                    ParseResult = true;
+                    _finalResult = true;
                     break;
                 }
             }
+
         }
 
         private void InitTable()
         {
-            for (int i = 0; i < InitialLength; i++)
+            for (int i = 0; i < InitialStringLength; i++)
             {
                 for (int j = 0; j < RulesCount; j++)
                 {
-                    if (Rules[j].Validate(InitialString[i]))
-                    {
-                        _resultMatrix[i, 0, j] = true;
-                    }
+                    if (Rules[j].Check(_initialString[i]))
+                        _matrix[i, 0, j] = true;
                 }
             }
         }
